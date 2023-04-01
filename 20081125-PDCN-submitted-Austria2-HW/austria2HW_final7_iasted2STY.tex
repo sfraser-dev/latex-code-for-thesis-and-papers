@@ -1,0 +1,689 @@
+% Removed 5x5 sliding window figure
+% made other figures smaller to fit eveything into 7 pages (with authors)
+% This austria2HW_final7.tex is fine in PS (using original iasted.sty) but poor when converted to PDF (ps2pdf.com)
+
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{iasted2}
+\usepackage{floatflt}
+\usepackage{amsfonts}
+%\usepackage[pdftex]{graphicx,color}
+\usepackage[dvips]{graphicx}
+
+\usepackage{times}
+
+%\setlength{\intextsep}{0.2cm}
+%\setlength{\dbltextfloatsep}{-0.5cm}
+%\setlength{\textfloatsep}{-0.5cm}
+%\setlength{\belowcaptionskip}{-0.5cm}
+
+\begin{document}
+
+\date{}
+
+%\title{HARDWARE MODELLING OF IMAGE PROCESSING ALGORITHMS USING Verilog HDL}
+%\title{DESIGN AND SIMULATION OF REAL-TIME IMAGE PROCESSING ALGORITHMS USING VERILOG}
+\title{DESIGN AND SIMULATION OF REAL-TIME IMAGE PROCESSING ALGORITHMS}
+
+\author{Stewart I. Fraser \\
+        Department of Engineering \\
+        University of Aberdeen \\
+        Aberdeen, AB24 3UE, UK \\
+        Email: s.i.fraser@abdn.ac.uk 
+        \and
+        Alastair R. Allen \\
+        Department of Engineering \\
+        University of Aberdeen \\
+        Aberdeen, AB24 3UE, UK \\
+        Email: a.allen@abdn.ac.uk
+}
+
+\addtolength{\parskip}{0.4cm}
+
+\maketitle
+\thispagestyle{empty}
+
+%%%% Replace with your abstract.
+\noindent
+{\bf\normalsize ABSTRACT}\newline {
+Image processing algorithms, such as average filtering, median filtering,
+convolution and edge detection are used frequently in many different imaging applications.
+Implementation of these algorithms in software has been widely studied.
+However, many imaging systems are required to operate in real-time which is difficult to
+achieve using software. Hardware solutions, such as FPGAs and ASICs, offer
+real-time implementations of complex imaging systems. Real-time performance in 
+hardware is achieved by re-designing algorithms to take advantage of parallelism and
+pipelining. This paper describes the process of adapting common image processing algorithms
+for hardware implementation (resulting in a hardware image processing library).
+Comparisons of the algorithms using software implementations and hardware
+simulations are performed.
+}
+
+
+\vspace{2ex}
+
+
+%%%% Replace with your keywords. 
+\noindent
+{\bf\normalsize KEY WORDS}\newline
+{Digital Image Processing, Algorithms and Techniques, Verilog, Hardware Simulation.}
+
+\section{Introduction}
+%
+%Average filter simple (example) 	
+%medianToMorph
+%Gaussian smooth To others (NEG, laplacian sobel)
+%
+%futureWork (FPGA)
+%
+%improvements: 
+%median (oddEven, parallelMergeSort, parallelRankSort)
+%convolution (multiplier-less multiplication p49TechReport)
+%
+%principle ??? principal
+Digital image processing is prevalent throughout society and used in a wide
+range of scientific fields (\emph{e.g.},
+medicine, security, telecommunications, manufacturing, military, \emph{etc.}). 
+It is often necessary for image processing applications to operate in real-time 
+(\emph{e.g.}, video surveillance, target recognition, image enhancement, \emph{etc.}). 
+
+Using a general purpose Personal Computer (PC) to implement real-time image processing algorithms 
+poses a number of problems: (\emph{i}) PCs are relatively costly, (\emph{ii}) they have a high power consumption and (\emph{iii})
+they are large and heavy (making them impractical for some applications)~\cite{johnson02}. Also, the inherent sequential nature 
+of a PC means that algorithms are implemented in a serial fashion (which is considerably slower than a parallel implementation).
+On the other hand, hardware solutions (such as ASICs and FPGAs) do not suffer the same limitations as PCs when performing real-time
+image processing.
+
+\subsection{ASICs}
+An alternative to a PC would be to use an Application Specific Integrated Circuit (ASIC); hardware
+chips designed for a specific application~\cite{bouri99}. ASICs are cheap to mass produce, they have low power consumption and they are small in size.
+Algorithms designed for ASICs are implemented in parallel and thus run extremely quickly. 
+%However, ASICs are designed at the transistor 
+%level and thus require a great knowledge of electronics and a large amount of time to develop. 
+%This makes the inital development cost
+%of an ASIC very high. Another drawback of ASICs is that their designs cannot be altered after fabrication (thus any design errors
+%cannot be fixed).
+The drawbacks of ASICs are: (\emph{i}) their initial development costs are high and (\emph{ii}) their designs
+cannot be altered after fabrication (if a design is to be altered, the ASIC would need to be manufactured again).
+
+\subsection{FPGAs}
+Field Programmable Gate Arrays (FPGA) represent a compromise between PCs and ASICs. Like ASICs, FPGAs are a hardware solution.
+However, unlike ASICs, FPGAs consist of an array of routing resources that can be \emph{reprogrammed} after manufacture~\cite{msp05}.
+FPGAs have a number of advantages over ASICs: (\emph{i}) they have a shorter time to market, (\emph{ii}) they have lower development costs 
+and (\emph{iii}) they have the ability to be reprogrammed after manufacture~\cite{crookes99}. 
+However, FPGAs tend to draw more power and run slightly slower than ASICs. 
+This gives FPGAs the flexibility of a PC software solution (reprogramming) whilst maintaining the performance advantage of an ASIC solution.
+For these reasons, as well as their relatively low cost, real-time image processing with FPGAs is an active research field~\cite{batlle2002,
+kessal2003, mcbader2003}.
+
+Unfortunately, both ASICs and FPGAs have a low-level programming model~\cite{benkrid2000}. Thus, designing an image processing
+application for the first time 
+using an ASIC or a FPGA 
+is a time consuming and difficult task. 
+Having
+a pre-written hardware library of common image processing algorithms would dramatically reduce both the time needed and the difficulty of 
+creating an image processing application in hardware.
+
+\subsection{Hardware image processing library}
+This paper presents a library of common image processing algorithms written in the widely used 
+Verilog Hardware Description Language~\cite{thomasVerilog} 
+and tested in a ModelSim~\cite{modelsim} hardware simulator.
+This hardware library has been designed to be {\bf efficient} and {\bf reusable}. 
+The algorithms descibed here are not unique to Verilog and could easily be ported to a 
+different hardware description language. 
+
+The {\bf efficiency} of the image processing algorithms comes from exploiting parallelism and pipelining. 
+Parallelism indicates that many non-conflicting operations of an algorithm are performed at the same time (in a single clock cycle). 
+Pipelining indicates that
+multiple operations are overlapped in execution; after an initial startup delay, an output is produced for every clock cycle.
+
+The {\bf reusability} of the library is achieved by including image processing algorithms that are used in many different image processing applications.
+For example, consider the Gaussian smoothing filter. 
+This filter is widely used (for noise removal) as a pre-processing step in many imaging applications (\emph{e.g.} Canny edge detector~\cite{russbk}).
+Also, the code in the hardware library should be reusable to a large extent. 
+For example, by slightly altering the internal design of the Gaussian smoothing filter,
+it can easily be converted to a different convolution algorithm (\emph{e.g.} Laplacian sharpening).
+
+The hardware image processing library described in this paper consists of algorithms (like the Gaussian smoothing filter) that are widely used and
+reusable. The library has been designed to exploit parallelism and pipelining in order to implement algorithms efficiently in a hardware
+environment. The algorithms have been written in Verilog and verified using ModelSim. Using vendor tools, it would be possible
+to synthesize the Verilog code into a bitstream for implementation in an FPGA or even target the creation of ASIC. 
+
+
+
+\section{Image processing algorithms}
+Here, four common image processing algorithms are described:
+(\emph{i}) average filter, (\emph{ii}) median filter, (\emph{iii}) convolution and
+(\emph{iv}) Canny edge detector.
+%\begin{enumerate}
+%	\item average filter
+%	\item median filter
+%	\item convolution
+%	\item Canny edge detector
+%\end{enumerate}
+
+These use kernel operations, where
+a window of a certain size (\emph{e.g.}, $3\times3$, $5\times5$, \emph{etc.})
+is slid over an image. The centre pixel value of the sliding window is
+replaced with a new value based on 
+the values 
+of its neighbours as well as its own value. 
+In software, a sliding window operation is commonly implemented
+via a nested \emph{for} loop as shown in the following pseudo C-code.
+Figure~\ref{fig:slidWin} shows an example of a $3\times3$ sliding window.
+
+\scriptsize
+\begin{verbatim}
+// pseudo C-code for nested for loop
+for (r=0; r<rows; r++){
+    for (c=0; c<cols; c++){
+        kernelArray = pixels around image(r,c);
+        image(r,c) = average(kernelArray);
+    }
+}
+\end{verbatim}
+\normalsize
+\begin{figure}[!htb]
+\begin{center}
+\setlength{\abovecaptionskip}{-0.25cm}
+        %\includegraphics[height=2.2cm,width=2.2cm]{pics/win5.pstex}
+        \includegraphics[height=1.9cm,width=1.9cm]{pics/win5.pstex}
+        \caption{Sliding $3\times3$ window, centre pixel value of 44}
+        \label{fig:slidWin}
+\setlength{\abovecaptionskip}{0cm}
+\end{center}
+\end{figure}
+
+\subsection{Average filter}
+The average filter~\cite{russbk} computes the average value of the pixels
+in a sliding window. In Figure~\ref{fig:slidWin}, the original central pixel value of 44
+would get replaced by $(12+38+18+29+44+33+24+15+21) / 9 = 234/9 = 26$.
+
+\subsection{Median filter}
+The median filter~\cite{russbk} ranks (sorts) the values in a sliding window
+according to their brightness. This type of filter is good at removing 
+\emph{salt and pepper} noise. In Figure~\ref{fig:slidWin}, the values in the 
+window would get sorted: 12 15 18 21 \underline{24} 29 33 38 44. The median 
+value of this sorted list is 24. Thus, the median filter would replace the original central
+pixel value of 44 with 24. 
+
+\subsection{Convolution}
+Convolution~\cite{russbk} calculates the weighted sum of pixels in a sliding window.
+A convolution mask, such as a Gaussian smoothing mask shown in Figure~\ref{fig:conMask}, can be used for this process.
+\begin{figure}[!htb]
+\begin{center}
+\setlength{\abovecaptionskip}{-0.25cm}
+        %\includegraphics[height=1.5cm,width=2cm]{pics/conMask.pstex}
+        \includegraphics[height=1.15cm,width=1.75cm]{pics/conMask.pstex}
+        \caption{Gaussian $3\times3$ smoothing convolution mask}
+        \label{fig:conMask}
+\setlength{\abovecaptionskip}{0cm}
+\end{center}
+\end{figure}
+At corresponding locations, convolution multiplies a value in the sliding window (Figure~\ref{fig:slidWin}) with a value 
+in the convolution mask (Figure~\ref{fig:conMask}). In the example given:
+$[(12\times21)+(38\times31)+(18\times21)+
+(29\times31)+(44\times48)+(33\times31)+
+(24\times21)+(15\times31)+(21\times21) ] / 256 = 7252/256 = 28.33$.
+Thus, convolution would replace the original central pixel value of 44 with 28.33.
+Convolution is an extremely versatile operation;
+by changing the weights of a convolution mask, it is possible to create completely different filters (\emph{e.g.}, Laplacian 
+sharpening filter, Sobel edge masks, \emph{etc.}). 
+It is also common for a convolution mask to consist of signed numbers.
+
+\subsection{Canny edge detection}
+The Canny edge detection algorithm~\cite{russbk, canny86} is a widely used algorithm in imaging applications as
+it gives good edge detection, good localisation
+and produces binary images with thin edges.
+There are four main stages to the Canny algorithm; these are shown in Figure~\ref{fig:cannyFlow2}.
+\begin{figure}[!htb]
+\begin{center}
+\setlength{\abovecaptionskip}{-0.25cm}
+        \includegraphics[height=1.1cm,width=7.05cm]{pics/cannyFlow2.pstex}
+        %\includegraphics[height=0.9cm,width=6.05cm]{pics/cannyFlow2.pstex}
+        \caption{Design-flow of Canny edge detection algorithm}
+        \label{fig:cannyFlow2}
+\setlength{\abovecaptionskip}{0cm}
+\end{center}
+\end{figure}
+Initially, a Gaussian smoothing operation is performed. 
+%(\emph{e.g.} using an $5\times5$ sliding window).
+Next, horizontal (\emph{dx}) and vertical (\emph{dy}) gradients are calculated 
+for each pixel by differentiating the smoothed image in 
+the \emph{dx} and \emph{dy} directions.  
+
+Next, directional non-maximal suppression is performed.
+The hypotenuse and arctangent of the \emph{dx} and \emph{dy} gradients 
+are used to calculate the magnitudes and phases of each gradient.
+The phases are quantized into one of four orientations. 
+%A $3\times3$ sliding window can be used for this calculation.
+Once the orientation of the gradient is known, the magnitudes of the pixels in
+the neighbourhood of the pixel under examination are interpolated. If the magnitude of the pixel under examination is less
+than either of the interpolated values, it is eliminated as a non-maximum gradient. 
+
+Finally, hysteresis thresholding is performed to eliminate broken edges and single edge points.
+A low and a high threshold are chosen by the user and 
+a $3\times3$ sliding window is applied recursively to find definite edges.
+
+%The Canny edge detector is much more complicated than the average filter, the median filter and convolution.
+%However, it is built using a $5\times5$ Gaussian smoothing (convolution) filter 
+%as well as a number of sliding $3\times3$ windows. It is included in the library: (\emph{i}) to show how
+%code can be {\bf reused} (after a slight alterations) and (\emph{ii}) because it is a {\bf common} algorithm used
+%in many imaging applications.
+
+\section{Adaptation of algorithms for hardware}
+The following sections explain how the algorithms in the image processing library were designed for
+hardware implementation (taking advantage of parallelism and piplining). The algorithms were
+coded in Verilog~\cite{thomasVerilog} and tested using ModelSim~\cite{modelsim}.
+Initially, a testbench module was written that read a greyscale image 
+%($256\times256$ or $512\times512$)
+into memory. The testbench then passed this image, in rasta order one pixel at a time, 
+to the sliding window module (described in Section~\ref{sec:slideWin}).
+
+\subsection{Sliding window operation}
+\label{sec:slideWin}
+One of the most important aspects of implementing image processing algorithms in hardware is the
+design of a sliding window module.
+As timing is critical in hardware, it is prudent to 
+update the values of a sliding window on every clock cycle (\emph{i.e.}, a pipelined design).
+Figure~\ref{fig:winFifo} shows the design of a sliding $3\times3$ window that generates a new set of window
+values on every clock cycle (after an initial start up latency).
+\begin{figure}[!htb]
+\begin{center}
+\setlength{\abovecaptionskip}{-0.25cm}
+        %\includegraphics[height=3cm,width=5cm]{pics/winFifo.pstex}
+        \includegraphics[height=2.70cm,width=4.2cm]{pics/winFifo.pstex}
+        \caption{Hardware design of a sliding $3\times3$ window}
+        \label{fig:winFifo}
+\setlength{\abovecaptionskip}{0cm}
+\end{center}
+\end{figure}
+Two FIFOs (First In First Out) are required for this operation.
+A FIFO is a type of memory that is used to buffer data;
+Verilog code for different types of FIFOs can be found in~\cite{zeidbk}.
+In Figure~\ref{fig:winFifo}, the widths of both FIFOs are $\mbox{\emph{ImageWidth}} - 3$.
+
+In Figure~\ref{fig:winFifo}, an image pixel is inserted into register W33. It is then propagated through
+registers W32 and W31 and then into FIFO2. From FIFO2, it is propagated through registers W23, W22 and
+W21 and then into FIFO1. From FIFO1, it is propagated through registers W13, W12 and W11 and then it is no longer needed.
+Once W11 has received its first image pixel, the startup period is over and 
+the values in the registers W11, W12, W13, W21, W22, W23, W31, W32 and W33 represent the sliding window; 
+these values can then be transferred to other modules for further processing (\emph{e.g.}, filtering, convolution, \emph{etc.}).
+Larger sliding windows can be implemented (\emph{e.g.}, $5\times5$, $7\times7$, \emph{etc}.) using a design similar to that shown 
+in Figure~\ref{fig:winFifo} (but with more FIFOs and registers).
+%Figure~\ref{fig:winFifo2} shows a similar design for implementing a $5\times5$ sliding window; the widths of all four 
+%FIFOs are $\mbox{\emph{ImageWidth}} - 5$.
+%\begin{figure}[!htb]
+%\begin{center}
+%\setlength{\abovecaptionskip}{-0.25cm}
+%        \includegraphics[height=4cm,width=7cm]{pics/winFifo2.pstex}
+%        \caption{Hardware design of a sliding $5\times5$ window}
+%        \label{fig:winFifo2}
+%\setlength{\abovecaptionskip}{0cm}
+%\end{center}
+%\end{figure}
+
+\subsection{Hardware average filter}
+\label{sec:av}
+An average filter module was designed to read the values of the nine sliding window registers from Section~\ref{sec:slideWin}.
+In hardware, it is not prudent to simply add all these values together and then divide by nine. This is due to the longest-path delay.
+The hardware clock speed will \emph{at} \emph{most} be equal to the path with the longest delay, so hardware designers should
+attempt to reduce this delay (this can be achieved by reducing complexity). An example of this is given
+below for an implementation of an average filter using pseudo Verilog code. This code finds a total by adding 
+all the sliding window values
+together (from a $3\times3$ window) and then divides this total by eight to compute an estimate of the average; 
+it does this in five distinct steps.
+
+\scriptsize
+\begin{verbatim}
+// pseudo Verilog code for an average filter
+output reg [7:0] average;          // 8 bits
+reg [8:0] r10, r11, r12, r13, r14; // 9 bits
+reg [9:0] r20, r21, r22;           // 10 bits
+reg [10:0] r30, r31;               // 11 bits
+reg [11:0] total;                  // 12 bits
+
+// w11, w12 ... w33 are values from the sliding window
+r10 <= w11 + w12;        // 1st clock cycle
+r11 <= w13 + w21;        // 1st clock cycle
+r12 <= w22 + w23;        // 1st clock cycle
+r13 <= w31 + w32;        // 1st clock cycle
+r14 <= w33;              // 1st clock cycle
+
+r20 <= r10 + r11;        // 2nd clock cycle
+r21 <= r12 + r13;        // 2nd clock cycle
+r22 <= r14;              // 2nd clock cycle
+
+r30 <= r20 + r21;        // 3rd clock cycle
+r31 <= r22;              // 3rd clock cycle
+			
+total <= r30 + r31;      // 4th clock cycle
+
+average <= (total >> 3); // 5th clock cycle
+\end{verbatim}
+\normalsize
+It can be seen from the pseudo Verilog code that there are no long and complex expressions (thus minimizing the longest-path delay).
+Initially, registers \emph{r10, r11, r12, r13} and \emph{r14} are all assigned (at the same time) on the first clock cycle. 
+This is achieved using Verilog's non-blocking assignment ($<$=) which synchronizes assignments so they occur
+{\bf at the same time} on a clock edge (\emph{i.e.}, operate in parallel).
+Registers \emph{r20, r21} and \emph{r22} are all assigned (at the same time) on the second clock cycle, 
+registers \emph{r30} and \emph{r31} are both
+assigned (at the same time) on the third clock cycle. 
+The summation of all the sliding window values, \emph{total}, is assigned on the fourth clock cycle 
+and their \emph{average} is
+assigned on the fifth clock cycle. 
+In this example, the average value will be valid five clock cycles after
+it has received the sliding window values. Flags are used to indicate when an output from a module is valid.
+This final \emph{average} value is calculated via right-shifting \emph{total} by 3 (divide by 8).
+Although this should be a divide by 9, division is an expensive operation in hardware so a compromise is made via
+right-shifting by 3 instead\footnote{the full Verilog code has checks to make sure values greater than 255 do not occur
+for \emph{average}} (shifting is an inexpensive operation in hardware). 
+A programmer should always consider adapting an algorithm to use more efficient computations when designing for hardware.
+
+The average filter design is pipelined; after an initial latency of five clock cycles, an average value is produced on
+{\bf every clock cycle}. The registers are different widths to account for possible carry bits during addition (the values
+from the sliding window registers are eight bits wide). 
+
+\subsection{Hardware median filter}
+\label{sec:med}
+A median filter module was designed to read the values of the nine sliding window registers from Section~\ref{sec:slideWin}.
+An odd-even transposition sort algorithm~\cite{oddEvenTran} was implemented using two Verilog modules (an odd sort module and an even sort module). 
+The odd-even transposition sort algorithm essentially runs many bubble sort~\cite{bubblebk} computations in parallel; it can
+sort a 1-D array of \emph{N} values after \emph{N} applications.
+An example of the odd-even transposition sorting algorithm is given in Figure~\ref{fig:oddEvenSort}. 
+\begin{figure}[!htb]
+\begin{center}
+\setlength{\abovecaptionskip}{-0.25cm}
+        %\includegraphics[height=5cm,width=6.25cm]{pics/oddEvenSort.pstex}
+        \includegraphics[height=4.45cm,width=5.5cm]{pics/oddEvenSort.pstex}
+        \caption{Odd-even transposition sorting algorithm}
+        \label{fig:oddEvenSort}
+\setlength{\abovecaptionskip}{0cm}
+\end{center}
+\end{figure}
+In this example, the un-ordered array of nine values (7 4 2 6 1 5 3 8 0) is sorted into ascending order after nine applications.
+Comparators, indicated by circular arrows in Figure~\ref{fig:oddEvenSort}, are used in parallel to compare two values; the lower of
+these values is moved to the left and the higher is moved to the right.
+This can be achieved via the following pseudo Verilog code:
+
+\scriptsize
+\begin{verbatim}
+// pseudo Verilog code for a comparator
+if regLevelONE_1 < regLevelONE_2 begin 
+    regLevelTWO_1 <= regLevelONE_1;
+    regLevelTWO_2 <= regLevelONE_2;
+end else begin
+    regLevelTWO_1 <= regLevelONE_2;
+    regLevelTWO_2 <= regLevelONE_1;
+end
+\end{verbatim}
+\normalsize
+
+The design in Figure~\ref{fig:oddEvenSort} is pipelined. For example, the values from a sliding window (\emph{A}) are received and
+undergo their first sort resulting in $A^{1^{st}}_{sort}$. On the next clock cycle, the values in $A^{1^{st}}_{sort}$ are sorted again
+(resulting in $A^{2^{nd}}_{sort}$) while {\bf at the same time} the values from the next sliding window (\emph{A+1}) are received and undergo 
+their first sort.
+Once the initial start-up latency of nine clock cycles has passed, a sorted listed will be produced on {\bf every clock cycle}.
+The median of this sorted list is selected and is returned as the new pixel value.
+Morphological operations of greyscale erosion and dilation can also be computed using sorted lists. Grayscale
+erosion returns the minimum value from a sorted list and greyscale dilation returns the maximum value from a sorted list.
+Thus, with a small alteration, the code for the median filter can be altered to implement greyscale erosion and dilation.
+
+\subsection{Hardware convolution}
+\label{sec:conv}
+A convolution module was designed to read the values of the nine sliding window registers from Section~\ref{sec:slideWin}.
+Unlike the average and median filters, it is necessary for the convolution module to handle signed numbers (as many
+convolution masks have negative values). Compared to average and median filtering, convolution is a complex operation
+involving the use of two's complement arithmetic to represent signed numbers.
+Convolution is performed by multiplying the values in a sliding window ($w_{xx}$) by a constant value ($k_{x}$) from a 
+convolution mask. The results of these multiplications are summed together and 
+the final summed value is divided (using a shift-right calculation) to give a final convolution value to be returned.
+This process is shown diagramatically in Figure~\ref{fig:convolution}. 
+\begin{figure}[!htb]
+\begin{center}
+\setlength{\abovecaptionskip}{-0.25cm}
+        %\includegraphics[height=6.25cm,width=6.0cm]{pics/convolution2.pstex}
+        \includegraphics[height=5.9cm,width=6cm]{pics/convolution2.pstex}
+        \caption{Convolution algorithm}
+        \label{fig:convolution}
+\setlength{\abovecaptionskip}{0cm}
+\end{center}
+\end{figure}
+Pseudo Verilog code is shown 
+for implementing hardware convolution.
+The pseudo Verilog code operates on 8 bit unsigned sliding window
+registers ($w_{xx}$). The convolution mask registers ($k_{x}$) are 9 bits wide
+(8 bits for the value, 1 bit for the sign). The multiplication 
+registers ($m_{x}$) are 17 bits wide (16 bits to store the 
+result of the multiplication and 1 bit for the sign). The addition
+registers ($a_{xx}$) are 18, 19, 20 and 21 bits wide; these registers
+are wider because as addition continues, larger values have to be stored.
+
+Multiplication of the 8 bit unsigned sliding window registers ($w_{xx}$) with the 
+convolution mask registers ($k_{x}$) intially alters the $w_{xx}$ registers to be
+9 bit signed (positive) values. It does this using the Verilog concatenation
+operator \tt \footnotesize \{1'b0,w11\} \normalsize \rm to prefix a binary 
+value of 0 to the value of $w_{xx}$. Signed multiplation of the $w_{xx}$ and
+$k_{x}$ registers can then be performed using the Verilog
+\tt\footnotesize \$signed() \hspace{-0.3cm} \normalsize \rm operator.
+%\emph{\$signed()} operator.
+
+\scriptsize
+\begin{verbatim}
+// Pseudo Verilog code for convolution
+// convolution mask values 9 bits (signed)
+reg signed [8:0] k0, k1, k2, k3, k4, k5, k6, k7, k8;
+
+// multiplication results 17 bits (signed)
+reg signed [16:0] m0, m1, m2, m3, m4, m5, m6, m7, m8;
+
+// addition 18, 19, 20 and 21 bits (signed)
+reg signed [16+1:0] a10, a11, a12, a13, a14;  // 18 bits
+reg signed [16+2:0] a20, a21, a22;            // 19 bits
+reg signed [16+3:0] a30, a31;                 // 20 bits
+reg signed [16+4:0] a40;                      // 21 bits
+
+m0 <= $signed({1'b0,w11}) * $signed(k0);      // 1st clk 
+m1 <= $signed({1'b0,w12}) * $signed(k1);      // 1st clk
+m2 <= $signed({1'b0,w13}) * $signed(k2);      // 1st clk 
+m3 <= $signed({1'b0,w21}) * $signed(k3);      // 1st clk 
+m4 <= $signed({1'b0,w22}) * $signed(k4);      // 1st clk 
+m5 <= $signed({1'b0,w23}) * $signed(k5);      // 1st clk 
+m6 <= $signed({1'b0,w31}) * $signed(k6);      // 1st clk 
+m7 <= $signed({1'b0,w32}) * $signed(k7);      // 1st clk 
+m8 <= $signed({1'b0,w33}) * $signed(k8);      // 1st clk 
+
+a10 <= $signed({m0[16],m0}) + $signed(m1);    // 2nd clk 
+a11 <= $signed({m2[16],m2}) + $signed(m3);    // 2nd clk
+a12 <= $signed({m4[16],m4}) + $signed(m5);    // 2nd clk 
+a13 <= $signed({m6[16],m6}) + $signed(m7);    // 2nd clk 
+a14 <= $signed({m8[16],m8});                  // 2nd clk 
+
+a20 <= $signed({a10[17],a10}) + $signed(a11); // 3rd clk
+a21 <= $signed({a12[17],a12}) + $signed(a13); // 3rd clk 
+a22 <= $signed({a14[17],a14});                // 3rd clk 
+
+a30 <= $signed({a20[18],a20}) + $signed(a21); // 4th clk 
+a31 <= $signed({a22[18],a22});                // 4th clk 
+
+a40 <= $signed({a30[19],a30}) + $signed(a31); // 5th clk 
+	
+convolutionResult <= $unsigned(a40 >> 8);     // 6th clk 
+\end{verbatim}
+\normalsize
+
+
+The addition calculations also use the concatenation operator. For example,
+\tt \footnotesize a14 $<$= \$signed(\{m8[16],m8\}) \normalsize \rm concatenates
+the most significant bit of 
+$m_{8}$ to itself\footnote{Verilog has a syntax similar to the C programming language, 
+thus arrays start counting from 0}
+(on the left-hand side).
+This ensures
+that the 18 bit 
+$a_{14}$ register has the correct sign value (0 for positive and 1 for negative)
+when it is assigned the value of the 17 bit 
+$m_{8}$ register.
+This concatenation is required otherwise the most significant bit of  
+$a_{14}$ would automatically get set to zero by Verilog 
+(correct for positive values, incorrect for negative values).
+The addition continues 
+so that, after a latency of six clock cycles, a result for the convolution
+operation is obtained on {\bf every clock cycle} (\emph{i.e.}, pipelined). 
+Parallelism is achieved by performing numerous simple calculations at the same time
+(calculations are kept simple to minimize the longest-path delay and thus maximize the hardware clock speed).
+
+
+\subsection{Hardware Canny edge detection}
+The Canny edge detector is much more complex than the average filter, median filter and convolution; an in-depth
+explaination~\cite{msp05, canny86, IPtechreport_MSThesis} of its implementation in hardware is beyond the scope of this paper. 
+Instead, a general overview of how it was implemented in hardware is given here. 
+Its implementation utilises the hardware techniques of 
+pipelining, parallelism and minimizing the longest-path delay (used previously in Sections~\ref{sec:av}, \ref{sec:med} 
+and \ref{sec:conv}).
+
+The first stage of the Canny edge detector is to implement the convolution operation of {\bf Gaussian smoothing} upon the input image.
+%Using an $11\times11$ sliding window (Section~\ref{sec:slideWin}), 
+%Using a sliding window (Section~\ref{sec:slideWin}), 
+%the convolution operation of Gaussian derivative smoothing is performed.
+The next stage is to {\bf calculate the gradient in the \emph{x} and \emph{y} directions}.
+%performed upon the sliding window registers as described in Section~\ref{sec:conv}).
+%It is possible to perform Gaussian smoothing with a $5\times5$ window and then use $3\times3$
+%kernels to compute the gradients in the \emph{x} and \emph{y} directions. How
+These two operations can be performed simultaneously~\cite{msp05} by 
+using an $11\times11$ sliding window to perform Gaussian derivative smoothing;
+this smooths the image and at the same time calculates the gradients (of the smoothed image) in the \emph{x} and \emph{y} directions.
+
+Next, {\bf non-maximal suppression} is performed by first calculating the magnitude and phase (orientation) of each pixel in the 
+\emph{x} and \emph{y} directions. Calculating the magnitude of the pixels in the \emph{x} and \emph{y} directions is straightforward, however,
+calculating the phase of the pixels requires use of the 
+\emph{arctan} function. This function is difficult to implement in hardware,
+so an effective but simplier calculation is used based upon: (\emph{i}) the magnitudes of the \emph{x} and \emph{y} gradients and 
+(\emph{ii}) the sign of the \emph{x} and \emph{y} gradients. This produces a quantized orientation\footnote{orientations
+based on compass points: 1: NNW-SSE, 2: WNW-ESE, 3: NNE-SSW and 4: WSW-ENE} in one of four directions.
+Once the orientation of the gradient is known for a pixel, the magnitudes of its immediate neighbours \emph{along that orientation} 
+are interpolated
+(this is performed using a $3\times3$ sliding window).
+If the magnitude of the pixel under consideration is less than either of its interpolated neighbours, it is suppressed. Otherwise, the
+pixel under consideration is marked as a local maximum gradient.
+
+The final stage of the Canny edge detection algorithm is {\bf hysteresis thresholding}. The edge image produced from the previous
+non-maximal suppression step may consist of single edge points and broken edges. These can be eliminated by 
+hysteresis thresholding. Hysteresis thresholding can be implemented easily in hardware via a $3\times3$ sliding window and two 
+user defined thresholds ($th_{low}$ and $th_{high}$). 
+The $3\times3$ window is slid over the gradient magnitude image (from the non-maximal suppression step); using the pixels in the window 
+and the two user defined thresholds, a comparison is made that decides whether a possible edge is kept or removed. This 
+produces an image with very sharp and thin edges~\cite{IPtechreport_MSThesis}.
+By applying hysteresis thresholding numerous times (recursively), it is possible to \emph{grow} the edges and thus improve
+the quality of the edge image.
+
+As with the average filter, median filer and convolution, the 
+four stages of the Canny algorithm were each designed with a high level of parallelism and pipelining.
+Care was taken to break complex calculations into numerous simple calculations in order to minimize the longest-path delay.
+Much code from Sections~\ref{sec:av}, \ref{sec:med} and \ref{sec:conv} was reused in the design of the Canny edge detector.
+
+\section{Results}
+The algorithms (average filter, median filter, convolution and Canny edge detector) were written in software (C-code) and
+in hardware (Verilog). 
+ModelSim~\cite{modelsim} was used to verify the correct performance of the Verilog code via simulation.  
+The C-code was run on a Pentium 4 PC with a clock speed of 3000MHz and 1000MB of RAM.
+The times taken to execute C and Verilog implementations of each algorithm 
+(using greyscale Lena images of $256\times256$ and $512\times512$)
+are shown in Table~\ref{tab:res256and512}. 
+Note that the simulated results for the Verilog code in ModelSim used a clock period of 20 nano-seconds;
+this equates to a hardware clock running at 50MHz in a FPGA. Faster times are possible by
+reducing this clock period, but this would put more emphasis on minimizing the longest-path delay. 
+\begin{table}[!htb]
+%\small
+\footnotesize
+        \begin{center}
+                \begin{tabular}{|l|c|} \hline
+		\multicolumn{2}{|c|}{{\bf Lena} \boldmath$256\times256$\unboldmath} \\ \hline
+		Algorithm 				& 	Time to process \\ \hline\hline
+		average $3\times3$ (C-code)		& 	0.008818371 seconds  \\ \hline
+		median $3\times3$ (C-code)		& 	0.036465949 seconds  \\ \hline
+		convolution $3\times3$ (C-code)		& 	0.018986322 seconds  \\ \hline 
+		Canny $11\times11$ (C-code)		& 	0.041033778 seconds  \\ \hline \hline
+		
+		average $3\times3$ (Verilog)		& 	0.001310830 seconds  \\ \hline
+		median $3\times3$ (Verilog)		& 	0.001311050 seconds  \\ \hline
+		convolution $3\times3$ (Verilog)	& 	0.001310870 seconds  \\ \hline
+		Canny $11\times11$ (Verilog)		& 	0.001382990 seconds  \\ \hline
+		
+		\end{tabular}
+
+\vspace{1.25ex}
+
+		\begin{tabular}{|l|c|} \hline
+		\multicolumn{2}{|c|}{ {\bf Lena} \boldmath $512\times512$ \unboldmath } \\ \hline
+		Algorithm 				& 	Time to process \\ \hline\hline
+		average $5\times5$ (C-code)		& 	0.146352561 seconds  \\ \hline
+		median $5\times5$ (C-code)		& 	0.401161394 seconds  \\ \hline
+		convolution $5\times5$ (C-code)		& 	0.165119984 seconds  \\ \hline 
+		Canny $11\times11$ (C-code)		& 	0.217648294 seconds  \\ \hline \hline
+		
+		average $5\times5$ (Verilog)		& 	0.005243070 seconds  \\ \hline
+		median $5\times5$ (Verilog)		& 	0.005243470 seconds  \\ \hline
+		convolution $5\times5$ (Verilog)	& 	0.005243090 seconds  \\ \hline
+		Canny $11\times11$ (Verilog)		& 	0.005386770 seconds  \\ \hline
+		
+		\end{tabular}
+		\caption{Results for Lena $256\times256$ and $512\times512$}
+		\label{tab:res256and512}
+	\end{center}
+\end{table}
+
+The simulated Verilog hardware results are clearly much faster than the results for the software C-code (for both the $256\times256$ and 
+$512\times512$ Lena images). 
+For example, the Canny algorithm is over 29 times faster in hardware 
+than it is in software (Lena $256\times256$). 
+Similarly, the median $5\times5$ algorithm is over 76 times faster in 
+hardware than it is in software (Lena $512\times512$).
+Figure~\ref{fig:lenas} shows the outputs from the ModelSim hardware simulation (erosion and dilation outputs were
+obtained using the median filter returning the minimum (erosion) and maximum (dilation) values instead of the median value).
+\begin{figure*}[!htb]
+\begin{center}
+\setlength{\abovecaptionskip}{-0.25cm}
+        %\includegraphics[height=9cm,width=17.75cm]{pics/lenas3.pstex}
+        %\includegraphics[height=7cm,width=15cm]{pics/lenas3.pstex}
+        \includegraphics[height=8.465cm,width=16.91cm]{pics/lenas3.pstex}
+        \caption{Images processed in ModelSim using Verilog: 
+	{\bf (a)} original Lena $256\times256$, {\bf (b)} Lena with salt and pepper noise, {\bf (c)} median $3\times3$ filter applied to Lena with
+	salt and pepper noise,
+	{\bf (d)} average $3\times3$ filter applied to Lena with salt and pepper noise, 
+	{\bf (e)} Gaussian $3\times3$ smoothing (convolution) applied to original Lena,
+	{\bf (f)} Canny algorithm applied to original Lena, {\bf (g)} Greyscale erosion (minimum) $3\times3$ applied to original Lena, 
+	{\bf (h)} Greyscale dilation (maximum) $3\times3$ applied to original Lena}
+        \label{fig:lenas}
+\setlength{\abovecaptionskip}{0cm}
+\end{center}
+\end{figure*}
+
+\section{Conclusion}
+A hardware image processing library has been described and produced consisting of an average filter, a median filter, a
+minimum filter (greyscale erosion), a maximum filter (greyscale dilation), a convolution algorithm and a Canny
+edge detector algorithm. 
+These algorithms were designed to be highly parallel, pipelined and with low complexity (minimizing longest-path delay);
+such a design facilitates very quick execution speeds in hardware.
+The algorithms in this library 
+are commonly used in image processing applications and as such
+it is foreseen that they can be frequently re-used.
+Simulation results show that these hardware algorithms outperform their software
+counterparts drastically.
+
+
+\renewcommand{\baselinestretch}{1}
+	%\scriptsize
+	\footnotesize
+	%\small
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{austria2HW}
+\bibliographystyle{unsrt}
+	\normalsize
+\renewcommand{\baselinestretch}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\end{document}
+
+
+

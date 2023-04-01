@@ -1,0 +1,8 @@
+latex austria2HW_final7_iasted2STY
+latex austria2HW_final7_iasted2STY
+bibtex austria2HW_final7_iasted2STY
+latex austria2HW_final7_iasted2STY
+bibtex austria2HW_final7_iasted2STY
+latex austria2HW_final7_iasted2STY
+latex austria2HW_final7_iasted2STY
+dvips austria2HW_final7_iasted2STY.dvi -o austria2HW_final7_iasted2STY.ps
