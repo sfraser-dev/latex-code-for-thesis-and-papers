@@ -1,0 +1,48 @@
+DON'T PANIC!!!!!!!!!!!!!!!!!!!!
+
+30 Nov 2004
+
+
+MAIN CORRECTIONS:
+
+-  All figures tidied up and all typos corrected
+
+-  Abstract shortened to 1 page
+
+-  I have already passed Chapters 1 and 5 to you, included here for completeness
+
+1) Old, long abstract converted into an Introduction chapter (Ch. 1)
+   I have already passed this altered chapter to you
+
+
+2) New summary section for Ch. 2 (p. 40)
+
+2) Visual artifacts section (Ch. 2, p. 35) now includes more emphasis 
+   on computational complexity for different transforms in order to
+   tie in with Ch. 3 better
+
+
+3) Ch. 3, Section 3.1 (p. 43) rewritten to better compare the attributes 
+   of different transforms and argue the case for the wavelet A TROUS
+
+3) The last paragraph of Section 3.1 (p. 50) is new
+
+3) Section 3.2.4 (p. 57) rewritten to better clarify the difference
+   between SIGMA_{j} and SIGMA_{j}^{s}
+
+3) Section 3.3 (p. 62) has been rewritten to highlight the advantages
+   of the wavelet A TROUS
+
+
+4) "Summary of image quality metrics" (Secion 4.5, p. 80) now includes
+   more references to papers on image quality metrics
+
+
+5) This chapter has been completely rewritten to include PSNR and TPE
+   (from the Watson metric) measurements, it tests more filters and shows
+   how our novel algorithm is better than the Yu algorithm on which it was 
+   based
+   I have already passed this altered chapter to you
+
+
+6), 7) and 8) Just typos and tidying up

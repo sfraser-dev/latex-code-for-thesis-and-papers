@@ -1,0 +1,383 @@
+\documentclass[a4paper,10pt]{article}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\usepackage[usenames]{color}
+ 
+\setlength{\topmargin}{0cm}
+\setlength{\textheight}{23cm}
+\setlength{\textwidth}{16cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+
+\begin{document}
+
+\begin{center}
+\large
+{\bf 
+	\noindent Minor changes for \\ 
+	``Multiresolutional techniques for digital image filtering and watermarking'' \\
+	Stewart Ian Fraser \\ Ph.D. candidate, School of Physical Sciences, University of Aberdeen. 
+}
+\end{center}
+\normalsize
+
+
+\rule{0cm}{0.25cm}\\
+Page, figure and table numbers in {\color{Blue}blue} refer to the old thesis (without minor corrections). 
+Page, figure and table numbers in
+{\color{Red}red} refer to the new thesis (with minor corrctions).\\
+\rule{0cm}{0.25cm}\\
+\noindent{\bf Global changes}
+\begin{enumerate}
+\item Images, such as those on p.86 and p.87, could be wider to show more detail (they are not the full textwidth).
+
+{\color{Blue}
+\underline{\noindent Changes:} \\
+I have increased the width of the images on pages 
+22 ({\color{Red}21}), 42 ({\color{Red}41}), 72 ({\color{Red}74}), 
+85 ({\color{Red}87}), 86 ({\color{Red}88}), 87 ({\color{Red}89}), 
+91 ({\color{Red}93}), 92 ({\color{Red}94}), 93 ({\color{Red}95}), 
+95 ({\color{Red}97}), 96 ({\color{Red}98}), 97 ({\color{Red}99}), 
+99 ({\color{Red}101}), 100 ({\color{Red}102}), 101 ({\color{Red}103}), 
+106 ({\color{Red}109}), 107 ({\color{Red}110}), 133 ({\color{Red}145})
+140 ({\color{Red}151}), 166 ({\color{Red}179}), 176 ({\color{Red}190}), 
+242 ({\color{Red}218}), 243 ({\color{Red}219}), 246 ({\color{Red}222}), 
+248 ({\color{Red}111}), 249 ({\color{Red}112}), 250 ({\color{Red}113}), 
+251 ({\color{Red}114}), 252 ({\color{Red}115}), 253 ({\color{Red}116}), 
+254 ({\color{Red}117}), 255 ({\color{Red}118}) 
+so that they are slightly wider than the width of the text. 
+Similarly, I have increased the width of the graphs on pages 169 ({\color{Red}182}), 
+170 ({\color{Red}183}), 178 ({\color{Red}192}), 188 ({\color{Red}255}), 189 ({\color{Red}256}), 
+202 ({\color{Red}269}), 203 ({\color{Red}270}), 207 ({\color{Red}274}), 219 ({\color{Red}282}), 
+220 ({\color{Red}283}), 223 ({\color{Red}286}), 226 ({\color{Red}289}).
+}
+
+\item Figure and table captions need to convey more information 
+so that the reader does not have to search through the text to find out what is going on. 
+
+{\color{Blue}
+\underline{\noindent Changes:} \\
+Various captions on figures and tables have been expanded to give more information. 
+These changes can be seen clearly by looking at the \emph{List of Figures} and \emph{List of Tables} 
+(on pages \emph{xi} ({\color{Red}\emph{viii}}) and \emph{xv} ({\color{Red}\emph{xi}}), respectively). 
+\begin{itemize}
+\item Figures captions altered: 
+{\color{Red}
+{\color{Blue}2.1} (2.1), {\color{Blue}2.2} (2.2), {\color{Blue}2.3} (2.3), {\color{Blue}2.4} (2.4), {\color{Blue}2.5} (2.5), 
+{\color{Blue}2.12} (2.12), {\color{Blue}3.4} (3.4), {\color{Blue}4.2} (4.2), {\color{Blue}4.3} (4.3), 
+{\color{Blue}7.2} (7.2), {\color{Blue}7.3} (7.3), {\color{Blue}7.7} (7.7), {\color{Blue}7.10} (7.10), 
+{\color{Blue}9.3} (9.3), {\color{Blue}9.4} (9.4), {\color{Blue}9.5} (9.5), {\color{Blue}9.6} (9.6), 
+{\color{Blue}9.7} (9.7), {\color{Blue}9.8} (9.8), {\color{Blue}A2} (A2), {\color{Blue}A3} (A3), {\color{Blue}A4} (A4), 
+{\color{Blue}C1} (B1), {\color{Blue}C2} (B2). 
+}
+\item Tables captions altered: 
+3.1 ({\color{Red}3.1}), 5.1 ({\color{Red}5.1}), 5.2 ({\color{Red}5.2}), 5.3 ({\color{Red}5.3}), 5.4 ({\color{Red}5.4}), 
+7.1 ({\color{Red}7.1}), 7.2 ({\color{Red}7.3}), 7.3 ({\color{Red}7.4}), 7.4 ({\color{Red}7.5}), 7.5 ({\color{Red}7.6}), 
+7.6 ({\color{Red}7.7}), 9.1 ({\color{Red}9.1}), 9.2 ({\color{Red}9.2}), 9.3 ({\color{Red}9.3}), 9.5 ({\color{Red}9.5}), 
+9.6 ({\color{Red}9.6}), 9.7 ({\color{Red}9.7}), 9.8 ({\color{Red}9.8}), 10.2 ({\color{Red}H.1}), 10.3 ({\color{Red}H.2}), 
+10.4 ({\color{Red}H.3}), 10.5 ({\color{Red}H.4}), 10.6 ({\color{Red}H.5}),
+10.7 ({\color{Red}H.6}), 10.8 ({\color{Red}H.7}), 10.9 ({\color{Red}H.8}), 10.10 ({\color{Red}H.9}), 
+10.11 ({\color{Red}H.10}), 10.12 ({\color{Red}H.11}), 10.13 ({\color{Red}H.12}), 10.14 ({\color{Red}H.13}), 
+11.1 ({\color{Red}H.14}), 11.2 ({\color{Red}H.15}), 11.3 ({\color{Red}H.16}), 11.4 ({\color{Red}H.17}), 
+11.5 ({\color{Red}H.18}), 11.6 ({\color{Red}H.19}), 11.7 ({\color{Red}H.20}), 11.8 ({\color{Red}H.21}), 
+11.9 ({\color{Red}H.22}).
+\end{itemize}
+}
+
+\item Avoid orphans (single words or lines at the top of the page) if possible. \\
+{\color{Blue}\underline{Changes:}\\
+There are no more orphans.
+}
+
+\item Look at the possibility of using larger margins (not essential). \\
+{\color{Blue}
+\underline{Changes:} \\
+Kept margins the same size, but increased the width of images and graphs (as mentioned above).
+}
+
+\item Glossary. Are all of these abbreviations necessary? e.g. Gaus. for Gaussian and FP for filter performance etc.? 
+Again, infrequently used abbreviations can be hard work for the reader. \\
+{\color{Blue}
+\underline{\noindent Changes:} \\
+The following abbreviations are no longer in the thesis (expanded versions of these abbreviations are used instead):
+Av. filt (average filter), CLB (configurable logic block), 
+DEC (decoded), Gaus. (Gaussian), IP (intellectual property), 
+LUT (look up table), SSKF (symmetric short kernel filter), UNC (uncoded). \\
+The following abbreviations are now used in equations only (in
+Section {\color{Red}4.4.2}, p.{\color{Red}80}), their use in the rest of the 
+thesis (\emph{e.g.} Section {\color{Red}5.1.1}\footnote{main section discussing results of denoising filters}, 
+p.{\color{Red}86}),
+is now extinct (full text used instead):
+ES (edge sharpness), FP (filter performance), SP (this \emph{speckle reduction} abbreviation 
+has been replaced by the more informative $NR_{h}$ and $NR_{e}$ 
+(noise reduction homogeneous and noise reduction edge)).
+}
+
+\end{enumerate}
+
+
+
+\noindent{\bf Structural change} \\
+\indent Shorten and combine the final chapters on different error coding strategies, 
+detailed results can be put into appendices if desired. As a rough guide, the page count 
+for this section should be similar to those of the noise filter and new watermarking technique. \\
+{\color{Blue} \underline{Changes:}\\
+Old Chapters 10 and 11 combined into a single summarising chapter (Chapter {\color{Red}10}, 
+p.{\color{Red}196}) which is only 9 pages long. 
+This new short chapter drives home the main findings of the detailed results and analysis 
+which have now been shifted into the appendix (Appendix {\color{Red}H}, p.{\color{Red}252}). 
+}
+
+
+
+\noindent
+\rule{0cm}{0.2cm} \\
+{\bf Questions/changes} \\
+\noindent \emph{Chapter 1} 
+\begin{enumerate}
+\item Abbreviations not spelt out first occurrence, e.g. p.3 ECC, DCT, BCH. \\
+{\color{Blue} \underline{Changes:} \\
+ECC, DCT and BCH were expanded in the Abstract (this is why, initially, I did not expand them on p.3,
+but I have now expanded them on p.{\color{Red}3} too). I have double checked the rest of my abbreviations and made
+sure that they are fully spelt out on their first occurrence. 
+}
+\end{enumerate}
+
+\noindent \emph{Chapter 2} 
+\begin{enumerate}
+\item p.8 ``speckle is not noise''. Untrue. Clarify that noise is any unwanted signal, regardless of whether or not it is stochastic or stationary. \\
+{\color{Blue} \underline{Changes:}\\
+Previous sentence of: \\ 
+\emph{This interference results in ``blobs'' of different shape,
+size and position to appear on the generated image, i.e., the image has been corrupted by speckle}. \\
+has been replaced with (p.{\color{red}7}):\\
+\emph{This unwanted interference causes ``blobs'' of different shape,
+size and position to appear on the generated image, i.e., the image has been corrupted by speckle noise}.\\
+The paragraph proceeding this sentence (arguing that speckle is not noise) has been removed.
+}
+
+
+\item p.9 Unclear argument here. 
+Make it clearer that homomorphic method (logarithm) is not the implementation of the linear approximation described before it. \\
+{\color{Blue} \underline{Changes:} \\
+The paragraphs (p.{\color{Red}8}) describing the linear approximation method and the homomorphic method have been reworded 
+to make it clear that these
+two methods are seperate from each other.
+}
+\item p. 28 reference [34] ``Kivanc'' should be replaced by ``Mihcak''. \\
+{\color{Blue} \underline{Changes:} \\
+Kivanc replaced by Mih\c{c}ak ([34], p.{\color{Red}294}).
+}
+\item p. 30 Regarding thresholding methods, suggest inclusion of P. Moulin and J. Liu, 
+``Analysis of Multiresolution Image Denoising Schemes Using Generalized Gaussian and Complexity Priors''
+\emph{IEEE Trans. Info. Theory} 1999;45(3):909--919. 
+The link to image statistics in transform domain (wavelets in particular) is an essential part of this analysis. \\
+{\color{Blue} \underline{Changes:} \\
+Moulin and Liu reference has been added. Paragraph describing the link between wavelet shrinkage denoising
+and MAP estimates added to Section {\color{Red}2.3.1}, p.{\color{Red}28}.
+}
+\end{enumerate}
+
+\newpage
+
+\noindent \emph{Chapter 3}
+\begin{enumerate}
+\item p. 44 Regarding the issue of noise statistics in the undecimated transform domain. 
+It is mentioned in Table 3.1, however the problem of correlated noise in this domain should be
+discussed further. All thresholding techniques (c.f. Moulin \& Liu) are developed on the assumption of 
+i.i.d. Generalized Gaussian image statistics, and additive i.i.d. Gaussian noise using MAP estimation. 
+However, that does not hold in this case. See later p.53: your main idea to cope with the correlated noise 
+is to have a spatially varying threshold value. Partially it is a valid assumption, just not completely justified. 
+The correlated structure of noise in the undecimated domain assumes that the noise samples in some 
+neighborhood will be correlated, and it suggests proceeding with window-based processing rather than 
+simple pixel-wise one to capture these relationships. \\
+{\color{Blue}\underline{Changes:}\\
+Section {\color{Red}3.3}, p.{\color{Red}61}, renamed \emph{Summary and Future Work}. It is pointed out 
+on p.{\color{Red}62} that future work
+should focus upon a window based method for ascertaining the noise terms in an \emph{\`a trous} wavelet level
+rather than the current pixel-wise method (as the window based method is better).
+}
+
+\item p. 63 ``Soft thresholding wavelet coefficients is known to provide....'' Usage of hard or soft thresholding 
+depending on their smoothing/preserving properties as suggested in [46] is not a well-justified theoretical argument. 
+In fact, according to Moulin \& Liu, the hard and soft thresholdings are the particular cases of the MAP estimate 
+for various stochastic image priors. \\
+{\color{Blue}\underline{Changes:}\\
+Section {\color{Red}3.3}, p.{\color{Red}61}, renamed \emph{Summary and Future Work}. 
+On p.{\color{Red}62}, it is stated that hard and soft thresholding
+are particular cases of MAP estimates for stochastic image priors and that future work should consider these
+cases.
+}
+\end{enumerate}
+
+\noindent \emph{Chapter 4} 
+\begin{enumerate}
+\item p.68 Describe how the Watson metric is calculated. \\
+{\color{Blue} \underline{Changes:} \\
+New section added (Section {\color{Red}4.1.3}, p.{\color{Red}68}) 
+which describes the how the Watson metric components of contrast sensitivity, luminance masking, contrast masking
+and error pooling are calculted mathematically.
+}
+
+\item The fair comparisons later on depend critically on the fairness of this perceptual quality measure. 
+You should include a little more text and references to support its use in this role. \\
+{\color{Blue} \underline{Changes:} \\
+Extra references, which utilised the Watson metric, now included (Section {\color{Red}4.1.2}, {\color{Red}p.66}).  
+}
+\end{enumerate}
+
+\noindent \emph{Chapter 5 (and onwards)}
+\begin{enumerate}
+\item p.85 Table 5.1 ­ would be useful to have values for when no filtration is used (likewise table 5.4, p.99). \\
+{\color{Blue} \underline{Changes:} \\
+Tables {\color{Red}5.1}, {\color{Red}5.2}, {\color{Red}5.3} 
+and {\color{Red}5.4} (pages {\color{Red}87}, {\color{Red}93}, {\color{Red}97} and {\color{Red}101}) 
+now have an extra row describing the results for the unfiltered images.
+}
+
+\item p.104 ­ What did you learn from the clinical evaluation? (basically people preferred what they were used to, 
+they preferred the new technique as it changed the image appearance least, which is a biased result). \\
+{\color{Blue} \underline{Changes:} \\
+An extra paragraph added to Section {\color{Red}5.2.2}, 
+p.{\color{Red}107}, describing why saying the wavelet filter is the most preferred is a biased result.
+To the final paragraph, an extra few lines have been added (p.{\color{Red}108}) saying 
+that a more rigorous visual qualitative evaluation procedure could have been used (including a brief description
+of how to do this). \\
+\underline{Extra changes:} \\
+Denoised ultrasound images have been moved from Appendix B, p.247, 
+to the main body of the thesis (Section {\color{Red}5.2}, p.{\color{Red}111}).
+}
+
+\newpage
+
+\item p.130 Table 7.1 etc. No range or standard deviation given to indicate distribution and back up claim 
+about outlier on p.129 (reason for $\sigma^{2}=375$ rather than 600). \\
+{\color{Blue} \underline{Changes:}\\
+Ranges (minimums and maximums) and standard deviations added 
+to Tables {\color{Red}7.1}, {\color{Red}7.2}, {\color{Red}7.3}, 
+{\color{Red}7.5}, and {\color{Red}7.6} (p.{\color{Red}141} onwards). Table {\color{Red}7.2} is new and details
+the results for a Gaussian noise attack of $\sigma^{2}=600$ which, along with new text added in 
+Section {\color{Red}7.6.2} (p.{\color{Red}142}), explain the outlier result.
+}
+
+
+\item p.134 List number of failures in Table 7.2 as in 7.1. \\
+{\color{Blue} \underline{Changes:}\\
+Rows reporting the number of failures added to Tables {\color{Red}7.2}, {\color{Red}7.3}, {\color{Red}7.5} 
+and {\color{Red}7.6}.
+}
+
+\item p.146 (chapter 8 onwards) remove \underline{\%} from JPEG quality factor. \\
+{\color{Blue}
+\underline{\noindent Changes:} \\
+All the \% signs associated with JPEG quality factors have been removed.
+}
+
+\item p.133 etc. Watermark attack described as ``cropping'' does not attempt to desynchronise the
+watermark, just reduce its energy (since the remaining pixels are in their original location). 
+Likewise the ``scaling'' does not change the image size to desynchronise the watermark but merely 
+induces error from the downscale and nearest-neighbour interpolation. The targeted scenario is 
+robust watermarking. Real watermarking attacks include both signal processing attacks 
+(e.g. compression, filtering, etc.) aiming at the removal watermark or it energy decrease, and geometrical attacks, 
+which aim to desynchronise the watermark (c.f. Stirmark or Checkmark). 
+Only signal processing attacks have been addressed here. However, the goal of attacker is to fool the 
+detector (decoder) by introducing desynchronization. The task of decoder is to estimate what has happen to the 
+watermarked image and to apply the resynchronization accordingly. To avoid all possible criticism you should state 
+clearly somewhere that geometrical benchmarking was not your primarily goal and that you are assuming the 
+presence of some synchronization mechanism (provide suitable references). \\
+{\color{Blue} \underline{Changes:} \\
+New section added (Section {\color{Red}6.4}, p.{\color{Red}124}) which distinguishes between signal processing attacks and 
+geometrical attacks. A list of references (p.{\color{Red}125}) has been added pointing to articles 
+that describe techniques for
+decoder resynchronisation after geometrical attack.
+In Section {\color{Red}7.6.2},
+new text added (pages {\color{Red}141} and {\color{Red}142}) pointing out that the cropping attacks and half sizing attacks
+performed in this chapter are not geometrical attacks and that some sort of decoder resynchronization
+procedure is assumed. In the rest of this chapter, cropping is refered to as ``cropping'' and half sizing
+is referred to as ``half sizing''.
+}
+
+\item p.165 Table 9.2 headings confusing, mean and std should be combined with JPEG quality range
+(i.e. quality should span 3 columns, cf. table 7.1, p.130). Also table 9.5 on p.174. \\
+{\color{Blue}
+\underline{\noindent Changes:} \\
+Tables where quality made to span three columns (as suggested): {\color{Red}9.2}, {\color{Red}9.5}, 
+{\color{Red}H.2}, {\color{Red}H.8}, {\color{Red}H.10}, {\color{Red}H.12}, {\color{Red}H.13}, {\color{Red}H.14},
+{\color{Red}H.16}, {\color{Red}H.17}, {\color{Red}H.19}, {\color{Red}H.20}, {\color{Red}H.22}. \\
+\underline{Extra changes:} \\
+In tables 10.4 ({\color{Red}H.3}), 10.10 ({\color{Red}H.9}) and 10.12 ({\color{Red}H.11}), 
+multi-column \emph{ROC Area} moved from mid-table to top of table.\\
+In tables 9.2 ({\color{Red}9.2}), 9.5 ({\color{Red}9.5}), 10.3 ({\color{Red}H.2}), 10.9 ({\color{Red}H.8}), 
+10.11 ({\color{Red}H.10}), 10.13 ({\color{Red}H.12}), 10.14 ({\color{Red}H.13}), 11.1 ({\color{Red}H.14}), 
+11.3 ({\color{Red}H.16}), 11.4 ({\color{Red}H.17}), 11.6 ({\color{Red}H.19}), 11.7 ({\color{Red}H.20}), 
+11.9 ({\color{Red}H.22}), \emph{Std.} now used 
+as abbreviation for \emph{standard deviation}.\\
+In tables {\color{Red}7.1}, {\color{Red}7.3}, {\color{Red}7.4}, {\color{Red}7.6} 
+and {\color{Red}7.7}, \emph{QF} now used as the abbreviation for \emph{Quality Factor} (to match rest of thesis).
+}
+
+
+\item p.171 Explain/define PIM. \\ 
+{\color{Blue}
+\underline{\noindent Changes:} \\
+PIM overview expanded from a rough summary (in a few lines) to a more
+detailed explaination (a paragraph in length including a mathematical description of PIM), p.{\color{Red}184}.
+}
+
+\newpage
+
+\item p.196 underlining far too subtle (try bold font instead). \\
+{\color{Blue}
+\underline{\noindent Changes:} \\
+Underlined values now changed to red colour, p.{\color{Red}263}.
+}
+
+\item Reword ``drastically'' (cannot remember where it occurred!). \\
+{\color{Blue}
+\underline{\noindent Changes:} \\
+Bottom of Page 102 ({\color{Red}104}), \emph{drastically} removed.\\
+Top of page 151 ({\color{Red}164}), \emph{drastically} changed to \emph{quite considerably}.\\
+Top of page 231 ({\color{Red}207}), \emph{drastically} removed.
+}
+\end{enumerate}
+
+
+\noindent {\bf Viva examiners, 4th November 2005}
+\begin{itemize}
+\item Dr. Keith A. Goatman, University of Aberdeen. 
+\item Dr. Sviatoslav Voloshynovskiy, University of Geneva.
+\end{itemize}
+
+\end{document}
+
+\newpage
+This thesis investigates two interesting applications of wavelet techniques, 
+namely image denoising of images containing speckle noise, and digital watermarking. 
+It is generally written to a high standard and is well presented. 
+The structure is good except for the final few chapters (see below). 
+
+A minor modification of an \`a trous WT filter is presented, using an iterative technique 
+(very similar to existing methods) to refine the noise estimation for each level, and a 
+combined hard and soft thresholding scheme. The performance of the filter is demonstrated on the 
+standard lena image and some clinical and phantom ultrasound images. 
+There is some confusion about whether speckle is noise and whether or not it is useful to the 
+clinician interpreting the image. 
+
+A new watermarking technique is outlined, resulting from the 
+combination of strands from two existing techniques. However, there is limited development and 
+analysis of the technique. 
+
+Finally there is a lengthy discussion about how watermarking 
+robustness can be compared fairly, i.e. by fixing perceptual error and/or false positive rate. 
+This discussion is however too long-winded and unfocused, which makes the thesis unbalanced. 
+I recommend it be reduced from current four chapters (87 pages) to one chapter, removing a lot of 
+repetition and substantially reducing the length of the thesis. 
+For all its length it concentrated on a narrow range of images, and would have perhaps 
+benefited from selecting/generating images to demonstrate best/worst case performance of the system. 
+
+Overall the thesis makes the necessary distinct contribution to knowledge, shows evidence of 
+originality and critical analysis. I recommend this merits a pass, subject to the 
+oral examination and minor corrections.
+
+\end{document}

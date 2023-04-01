@@ -1,0 +1,77 @@
+\setlength{\unitlength}{3947sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+% extract first six characters in \fmtname
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+\begin{picture}(11869,5655)(783,-5236)
+\thinlines
+\put(4801,-4861){\makebox(1.6667,11.6667){\SetFigFont{5}{6}{rm}.}}
+\put(7201,-4861){\line( 1, 0){4800}}
+\put(7201,-4861){\framebox(4800,300){}}
+\put(7201,-4561){\framebox(2400,600){}}
+\put(9601,-4561){\framebox(2400,600){}}
+\put(10801,-3961){\framebox(1200,1200){}}
+\put(9601,-3961){\framebox(1200,1200){}}
+\put(8401,-3961){\framebox(1200,1200){}}
+\put(7201,-3961){\framebox(1200,1200){}}
+\put(11401,-2761){\framebox(600,2400){}}
+\put(10801,-2761){\framebox(600,2400){}}
+\put(10201,-2761){\framebox(600,2400){}}
+\put(9601,-2761){\framebox(600,2400){}}
+\put(9001,-2761){\framebox(600,2400){}}
+\put(8401,-2761){\framebox(600,2400){}}
+\put(7801,-2761){\framebox(600,2400){}}
+\put(7201,-2761){\framebox(600,2400){}}
+\put(1201,-4861){\framebox(1125,1125){}}
+\put(2326,-4861){\framebox(1125,1125){}}
+\put(3451,-4861){\framebox(1125,1125){}}
+\put(4576,-4861){\framebox(1125,1125){}}
+\put(1201,-3736){\framebox(1125,1125){}}
+\put(2326,-3736){\framebox(1125,1125){}}
+\put(3451,-3736){\framebox(1125,1125){}}
+\put(4576,-3736){\framebox(1125,1125){}}
+\put(4576,-2611){\framebox(1125,1125){}}
+\put(4576,-1486){\framebox(1125,1125){}}
+\put(3451,-1486){\framebox(1125,1125){}}
+\put(2326,-1486){\framebox(1125,1125){}}
+\put(1201,-1486){\framebox(1125,1125){}}
+\put(1201,-2611){\framebox(1125,1125){}}
+\put(2326,-2611){\framebox(1125,1125){}}
+\put(3451,-2611){\framebox(1125,1125){}}
+\put(1201,-361){\vector( 0, 1){600}}
+\put(5701,-4861){\vector( 1, 0){600}}
+\put(7201,-361){\vector( 0, 1){600}}
+\put(12001,-4861){\vector( 1, 0){600}}
+\put(9601,239){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}Wavelet transform}}}
+\put(3451,239){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}Short time Fourier transform}}}
+\put(6076,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}Time}}}
+\put(12376,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}Time}}}
+\put(3451,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}(a)}}}
+\put(9601,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}(b)}}}
+\put(6976,-286){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}Frequency}}}
+\put(976,-286){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}Frequency}}}
+\put(3901,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{sf}(a)}}}
+\put(4276,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{sf}(a)}}}
+\put(3076,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{17}{20.4}{sf}(a)}}}
+\put(2551,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{20}{24.0}{sf}(a)}}}
+\put(1951,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{20}{24.0}{sf}(a)}}}
+\put(1426,-5236){\makebox(0,0)[b]{\smash{\SetFigFont{20}{24.0}{sf}(a)}}}
+\end{picture}

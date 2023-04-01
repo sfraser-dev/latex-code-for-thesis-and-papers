@@ -1,0 +1,29 @@
+#FIG 3.2
+Landscape
+Center
+Inches
+Letter  
+100.00
+Single
+-2
+1200 2
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /home/eng565/myThesis_DNfinal/suitcaseResultsDenoise/origSuit/new_10125213_1.ps
+	 4800 600 13318 600 13318 9118 4800 9118 4800 600
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /home/eng565/myThesis_DNfinal/suitcaseResultsDenoise/medSuit/new_10125213_1_7.ps
+	 182 9675 8700 9675 8700 18193 182 18193 182 9675
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /home/eng565/myThesis_DNfinal/suitcaseResultsDenoise/leeSuit/new_10125213_1_7_5.ps
+	 9300 9675 17818 9675 17818 18193 9300 18193 9300 9675
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 new_10125213_1e.ps
+	 9300 18750 17818 18750 17818 27268 9300 27268 9300 18750
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 new_10125213_1d.ps
+	 182 18750 8700 18750 8700 27268 182 27268 182 18750
+4 1 0 0 0 16 28 0.0000 4 405 6105 9000 9525 Ultrasound image of test object 2\001
+4 1 0 0 0 16 28 0.0000 4 315 3510 4200 18600 Median filter result\001
+4 1 0 0 0 16 28 0.0000 4 315 2805 13500 18600 Lee filter result\001
+4 1 0 0 0 16 28 0.0000 4 315 3630 4200 27675 Wavelet filter result\001
+4 1 0 0 0 16 28 0.0000 4 315 7185 13500 27675 Contrast enhanced wavelet filter result\001

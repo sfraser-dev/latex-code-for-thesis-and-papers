@@ -1,0 +1,29 @@
+#FIG 3.2
+Landscape
+Center
+Inches
+Letter  
+100.00
+Single
+-2
+1200 2
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/medSuit/image001_7.ps
+	 257 9450 8775 9450 8775 17968 257 17968 257 9450
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/leeSuit/image001_7_5.ps
+	 9300 9450 17818 9450 17818 17968 9300 17968 9300 9450
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/wavSuit/image001d.ps
+	 257 18525 8775 18525 8775 27043 257 27043 257 18525
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/wavSuit/image001e.ps
+	 9300 18525 17818 18525 17818 27043 9300 27043 9300 18525
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/origSuit/image001.ps
+	 4800 300 13318 300 13318 8818 4800 8818 4800 300
+4 1 0 0 0 16 28 0.0000 4 360 4695 9000 9225 Ultrasound image of a foetus\001
+4 1 0 0 0 16 28 0.0000 4 285 3075 4500 18375 Median filter result\001
+4 1 0 0 0 16 28 0.0000 4 285 2460 13500 18375 Lee filter result\001
+4 1 0 0 0 16 28 0.0000 4 285 3180 4500 27450 Wavelet filter result\001
+4 1 0 0 0 16 28 0.0000 4 285 6315 13500 27450 Contrast enhanced wavelet filter result\001

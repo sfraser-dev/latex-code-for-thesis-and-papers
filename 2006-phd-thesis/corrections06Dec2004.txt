@@ -1,0 +1,68 @@
+06 Dec 2004
+
+MAIN CORRECTIONS:
+
+-  All figures tidied up and all typos corrected
+
+
+9) Section 9.2, p.157: What was previously the "Watermarking code" appendix 
+   (describes how the MATLAB and C code for watermarking with ECC functions)
+   has been pasted into this section (beginning on the 2nd paragraph 
+   "The C source code ... " and ending on top of p.160 "... results in 
+   graphical format"). You said that this appendix should be in the main 
+   body of the thesis.
+
+9) Ch.9, p162: The paragraph below the MATLAB code snippet and above 
+   equation (9.2) has been expanded to better describe Pfp values, message
+   lengths and detector thresholds.  Before, it merely said "In the case of
+   different message lengths, different detector thresholds values were used
+   which would result in Pfp values of similar magnitude". 
+   You asked me to explain this more.
+
+9) Ch.9, p.167: An attempt to clarify the "JPEG quality ranges" via an 
+   example is made (from the 2nd paragraph to the 2nd last paragraph 
+   on p.167).
+
+9) Ch.9, p.168, p169 and p.177: Koch line on plots changed from dashdot 
+   to solid line and the text on these plots made clearer (as you said the
+   graphs were only just visible and too similar).
+
+9) Ch.9, p.172: Examples of 3 ROC graphs presented, which weren't there 
+   before.
+
+
+10) Just typos corrected.
+
+
+11) p.217: Paragraph beginning "Over the five host images ... "
+    has been extended to better explain how messages with low levels
+    of repetition (rep.=3 and rep.=0) and no BCH coding can be seen to
+    be the most robust. 
+
+11) You pointed out that I had various statement throughout this chapter of
+    "the robustness can be seen in Figure X ... " which needed more 
+    explaining. These changes have been highlighted in marker pen.
+    See p.217, p.218, p.221, p.222 and p.225.
+
+
+12) Conclusion chapter (Ch.12, p.229): Added tiny introduction (4 lines)
+    before sub section 12.1. Apart from this (and one typo), it is
+    the same as the "Conclusions" chapter (Ch.12) I passed to you before 
+    (along with the "Introduction" chapter (Ch.1) and the
+    "Despeckling images: Results and Conclusions" chapter (Ch.5)).
+
+
+App. A, B, C, D, E, F, G) Just typos corrected.
+
+
+App. H) p.281: Reference to the 2 ROC papers that you passed to me added.
+
+App. H) p.282: MATLAB code snippet of how to calculate a ROC graph has
+	been added (which you suggested).
+
+App. H) p.284: Example of a ROC graph included (which you suggested).
+
+
+Bibliography) Website references standardised and last date accessed 
+              included. See items: 9, 14, 20, 21, 22, 23, 54, 99, 
+              100, 106, 109 & 113.

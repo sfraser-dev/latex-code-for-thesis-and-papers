@@ -1,0 +1,29 @@
+#FIG 3.2
+Landscape
+Center
+Inches
+Letter  
+100.00
+Single
+-2
+1200 2
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/origSuit/image003.ps
+	 4800 300 13318 300 13318 8818 4800 8818 4800 300
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/medSuit/image003_7.ps
+	 182 9525 8700 9525 8700 18043 182 18043 182 9525
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/leeSuit/image003_7_5.ps
+	 9300 9525 17818 9525 17818 18043 9300 18043 9300 9525
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/wavSuit/image003d.ps
+	 182 18900 8700 18900 8700 27448 182 27448 182 18900
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 image003e.ps
+	 9300 18900 17818 18900 17818 27418 9300 27418 9300 18900
+4 1 0 0 0 16 28 0.0000 4 285 3180 4200 27900 Wavelet filter result\001
+4 1 0 0 0 16 28 0.0000 4 285 6315 13500 27900 Contrast enhanced wavelet filter result\001
+4 1 0 0 0 16 28 0.0000 4 285 3075 4200 18450 Median filter result\001
+4 1 0 0 0 16 28 0.0000 4 285 2460 13500 18525 Lee filter result\001
+4 1 0 0 0 16 28 0.0000 4 360 4755 9000 9225 Ultrasound image of a kidney\001

@@ -1,0 +1,29 @@
+#FIG 3.2
+Landscape
+Center
+Inches
+Letter  
+100.00
+Single
+-2
+1200 2
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/origSuit/af1bssvgas.ps
+	 7200 300 19985 300 19985 9885 7200 9885 7200 300
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/medSuit/af1bssvgas_5.ps
+	 415 10800 13200 10800 13200 20385 415 20385 415 10800
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/leeSuit/af1bssvgas_3_5.ps
+	 13800 10800 26585 10800 26585 20385 13800 20385 13800 10800
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/wavSuit/af1bssvgasd.ps
+	 415 21300 13200 21300 13200 30885 415 30885 415 21300
+2 5 0 1 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	0 /opt/stewThesis/myThesis_DNandWM/suitcaseResultsDenoise/wavSuit/af1bssvgase.ps
+	 13800 21300 26585 21300 26585 30885 13800 30885 13800 21300
+4 1 0 0 0 16 38 0.0000 4 720 8340 13500 10575 Ultrasound image of a leg\001
+4 1 0 0 0 16 38 0.0000 4 570 6150 6600 21075 Median filter result\001
+4 1 0 0 0 16 38 0.0000 4 570 4920 19800 21075 Lee filter result\001
+4 1 0 0 0 16 38 0.0000 4 570 6360 6600 31575 Wavelet filter result\001
+4 1 0 0 0 16 38 0.0000 4 570 12630 20175 31575 Contrast enhanced wavelet filter result\001

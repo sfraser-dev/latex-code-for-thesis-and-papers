@@ -1,0 +1,15 @@
+#FIG 3.2
+Landscape
+Center
+Inches
+Letter  
+100.00
+Single
+-2
+1200 2
+6 975 375 6000 825
+4 1 0 0 0 16 12 0.0000 4 180 4980 3450 750 dashed line is after repetition correction and BCH decoding\001
+4 1 0 0 0 16 12 0.0000 4 180 3510 3450 525 solid line is after repetition correction only\001
+-6
+2 2 0 0 0 -1 0 0 -1 0.000 0 0 -1 0 0 5
+	 1725 375 5175 375 5175 225 1725 225 1725 375

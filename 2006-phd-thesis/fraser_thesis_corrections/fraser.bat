@@ -1,0 +1,3 @@
+latex fraser_thesis_corrections.tex
+dvips fraser_thesis_corrections.dvi -o fraser_thesis_corrections.ps
+dvipdf fraser_thesis_corrections.dvi

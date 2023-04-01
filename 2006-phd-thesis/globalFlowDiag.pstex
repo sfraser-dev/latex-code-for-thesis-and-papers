@@ -1,0 +1,349 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: globalFlowDiag.pstex
+%%Creator: fig2dev Version 3.2 Patchlevel 3c
+%%CreationDate: Thu Sep 19 15:54:34 2002
+%%For: eng565@ara3.eng.abdn.ac.uk (Stewart Ian Fraser)
+%%BoundingBox: 0 0 630 506
+%%Magnification: 1.0000
+%%EndComments
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/col-1 {0 setgray} bind def
+/col0 {0.000 0.000 0.000 srgb} bind def
+/col1 {0.000 0.000 1.000 srgb} bind def
+/col2 {0.000 1.000 0.000 srgb} bind def
+/col3 {0.000 1.000 1.000 srgb} bind def
+/col4 {1.000 0.000 0.000 srgb} bind def
+/col5 {1.000 0.000 1.000 srgb} bind def
+/col6 {1.000 1.000 0.000 srgb} bind def
+/col7 {1.000 1.000 1.000 srgb} bind def
+/col8 {0.000 0.000 0.560 srgb} bind def
+/col9 {0.000 0.000 0.690 srgb} bind def
+/col10 {0.000 0.000 0.820 srgb} bind def
+/col11 {0.530 0.810 1.000 srgb} bind def
+/col12 {0.000 0.560 0.000 srgb} bind def
+/col13 {0.000 0.690 0.000 srgb} bind def
+/col14 {0.000 0.820 0.000 srgb} bind def
+/col15 {0.000 0.560 0.560 srgb} bind def
+/col16 {0.000 0.690 0.690 srgb} bind def
+/col17 {0.000 0.820 0.820 srgb} bind def
+/col18 {0.560 0.000 0.000 srgb} bind def
+/col19 {0.690 0.000 0.000 srgb} bind def
+/col20 {0.820 0.000 0.000 srgb} bind def
+/col21 {0.560 0.000 0.560 srgb} bind def
+/col22 {0.690 0.000 0.690 srgb} bind def
+/col23 {0.820 0.000 0.820 srgb} bind def
+/col24 {0.500 0.190 0.000 srgb} bind def
+/col25 {0.630 0.250 0.000 srgb} bind def
+/col26 {0.750 0.380 0.000 srgb} bind def
+/col27 {1.000 0.500 0.500 srgb} bind def
+/col28 {1.000 0.630 0.630 srgb} bind def
+/col29 {1.000 0.750 0.750 srgb} bind def
+/col30 {1.000 0.880 0.880 srgb} bind def
+/col31 {1.000 0.840 0.000 srgb} bind def
+
+end
+save
+newpath 0 506 moveto 0 0 lineto 630 0 lineto 630 506 lineto closepath clip newpath
+-15.0 532.0 translate
+1 -1 scale
+
+/cp {closepath} bind def
+/ef {eofill} bind def
+/gr {grestore} bind def
+/gs {gsave} bind def
+/sa {save} bind def
+/rs {restore} bind def
+/l {lineto} bind def
+/m {moveto} bind def
+/rm {rmoveto} bind def
+/n {newpath} bind def
+/s {stroke} bind def
+/sh {show} bind def
+/slc {setlinecap} bind def
+/slj {setlinejoin} bind def
+/slw {setlinewidth} bind def
+/srgb {setrgbcolor} bind def
+/rot {rotate} bind def
+/sc {scale} bind def
+/sd {setdash} bind def
+/ff {findfont} bind def
+/sf {setfont} bind def
+/scf {scalefont} bind def
+/sw {stringwidth} bind def
+/tr {translate} bind def
+/tnt {dup dup currentrgbcolor
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add srgb}
+  bind def
+/shd {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+  4 -2 roll mul srgb} bind def
+/reencdict 12 dict def /ReEncode { reencdict begin
+/newcodesandnames exch def /newfontname exch def /basefontname exch def
+/basefontdict basefontname findfont def /newfont basefontdict maxlength dict def
+basefontdict { exch dup /FID ne { dup /Encoding eq
+{ exch dup length array copy newfont 3 1 roll put }
+{ exch newfont 3 1 roll put } ifelse } { pop pop } ifelse } forall
+newfont /FontName newfontname put newcodesandnames aload pop
+128 1 255 { newfont /Encoding get exch /.notdef put } for
+newcodesandnames length 2 idiv { newfont /Encoding get 3 1 roll put } repeat
+newfontname newfont definefont pop end } def
+/isovec [
+8#055 /minus 8#200 /grave 8#201 /acute 8#202 /circumflex 8#203 /tilde
+8#204 /macron 8#205 /breve 8#206 /dotaccent 8#207 /dieresis
+8#210 /ring 8#211 /cedilla 8#212 /hungarumlaut 8#213 /ogonek 8#214 /caron
+8#220 /dotlessi 8#230 /oe 8#231 /OE
+8#240 /space 8#241 /exclamdown 8#242 /cent 8#243 /sterling
+8#244 /currency 8#245 /yen 8#246 /brokenbar 8#247 /section 8#250 /dieresis
+8#251 /copyright 8#252 /ordfeminine 8#253 /guillemotleft 8#254 /logicalnot
+8#255 /hyphen 8#256 /registered 8#257 /macron 8#260 /degree 8#261 /plusminus
+8#262 /twosuperior 8#263 /threesuperior 8#264 /acute 8#265 /mu 8#266 /paragraph
+8#267 /periodcentered 8#270 /cedilla 8#271 /onesuperior 8#272 /ordmasculine
+8#273 /guillemotright 8#274 /onequarter 8#275 /onehalf
+8#276 /threequarters 8#277 /questiondown 8#300 /Agrave 8#301 /Aacute
+8#302 /Acircumflex 8#303 /Atilde 8#304 /Adieresis 8#305 /Aring
+8#306 /AE 8#307 /Ccedilla 8#310 /Egrave 8#311 /Eacute
+8#312 /Ecircumflex 8#313 /Edieresis 8#314 /Igrave 8#315 /Iacute
+8#316 /Icircumflex 8#317 /Idieresis 8#320 /Eth 8#321 /Ntilde 8#322 /Ograve
+8#323 /Oacute 8#324 /Ocircumflex 8#325 /Otilde 8#326 /Odieresis 8#327 /multiply
+8#330 /Oslash 8#331 /Ugrave 8#332 /Uacute 8#333 /Ucircumflex
+8#334 /Udieresis 8#335 /Yacute 8#336 /Thorn 8#337 /germandbls 8#340 /agrave
+8#341 /aacute 8#342 /acircumflex 8#343 /atilde 8#344 /adieresis 8#345 /aring
+8#346 /ae 8#347 /ccedilla 8#350 /egrave 8#351 /eacute
+8#352 /ecircumflex 8#353 /edieresis 8#354 /igrave 8#355 /iacute
+8#356 /icircumflex 8#357 /idieresis 8#360 /eth 8#361 /ntilde 8#362 /ograve
+8#363 /oacute 8#364 /ocircumflex 8#365 /otilde 8#366 /odieresis 8#367 /divide
+8#370 /oslash 8#371 /ugrave 8#372 /uacute 8#373 /ucircumflex
+8#374 /udieresis 8#375 /yacute 8#376 /thorn 8#377 /ydieresis] def
+/Helvetica /Helvetica-iso isovec ReEncode
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+
+$F2psBegin
+%%Page: 1 1
+10 setmiterlimit
+ 0.06000 0.06000 sc
+%
+% Fig objects follow
+%
+/Helvetica-iso ff 180.00 scf sf
+8850 2700 m
+gs 1 -1 sc (6. Is the) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 2925 m
+gs 1 -1 sc (removed noise) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 3150 m
+gs 1 -1 sc (standard deviation) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 3375 m
+gs 1 -1 sc (within the tolerance) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 3600 m
+gs 1 -1 sc (of the estimated) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 3825 m
+gs 1 -1 sc (noise standard) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 4050 m
+gs 1 -1 sc (deviation?) dup sw pop 2 div neg 0 rm  col0 sh gr
+% Polyline
+7.500 slw
+n 8850 2100 m 7650 3300 l 8850 4500 l 10050 3300 l
+ 8850 2100 l  cp gs col0 s gr 
+/Helvetica-iso ff 180.00 scf sf
+5475 3225 m
+gs 1 -1 sc (7. Increment the ) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+5475 3450 m
+gs 1 -1 sc (threshold value) dup sw pop 2 div neg 0 rm  col0 sh gr
+% Polyline
+n 4350 2850 m 6750 2850 l 6750 3750 l 4350 3750 l
+ cp gs col0 s gr 
+/Helvetica-iso ff 180.00 scf sf
+8850 5850 m
+gs 1 -1 sc (threshold value) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 5625 m
+gs 1 -1 sc (8. Have found optimal) dup sw pop 2 div neg 0 rm  col0 sh gr
+% Polyline
+n 7650 5250 m 10050 5250 l 10050 6150 l 7650 6150 l
+ cp gs col0 s gr 
+/Helvetica-iso ff 180.00 scf sf
+8850 7725 m
+gs 1 -1 sc (9. Apply inverse wavelet) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 7950 m
+gs 1 -1 sc (transform to the thresholded) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 8175 m
+gs 1 -1 sc (wavelet coefficients from) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 8400 m
+gs 1 -1 sc (step 4 in order to obtain) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 8625 m
+gs 1 -1 sc (the denoised image) dup sw pop 2 div neg 0 rm  col0 sh gr
+% Polyline
+n 7605 7350 m 7500 7350 7500 8745 105 arcto 4 {pop} repeat
+  7500 8850 10095 8850 105 arcto 4 {pop} repeat
+  10200 8850 10200 7455 105 arcto 4 {pop} repeat
+  10200 7350 7605 7350 105 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+/Helvetica-iso ff 180.00 scf sf
+2175 1050 m
+gs 1 -1 sc (threshold value) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2175 825 m
+gs 1 -1 sc (3. Set initial global) dup sw pop 2 div neg 0 rm  col0 sh gr
+% Polyline
+n 1050 450 m 3450 450 l 3450 1350 l 1050 1350 l
+ cp gs col0 s gr 
+/Helvetica-iso ff 180.00 scf sf
+5550 1050 m
+gs 1 -1 sc (the wavelet coefficients) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+5550 825 m
+gs 1 -1 sc (4. Globally threshold all) dup sw pop 2 div neg 0 rm  col0 sh gr
+% Polyline
+n 4350 450 m 6750 450 l 6750 1350 l 4350 1350 l
+ cp gs col0 s gr 
+% Polyline
+n 7650 450 m 10050 450 l 10050 1350 l 7650 1350 l
+ cp gs col0 s gr 
+/Helvetica-iso ff 180.00 scf sf
+8850 975 m
+gs 1 -1 sc (deviation of the removed) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 1200 m
+gs 1 -1 sc (noise component) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 750 m
+gs 1 -1 sc (5. Measure the standard) dup sw pop 2 div neg 0 rm  col0 sh gr
+% Polyline
+n 1005 5100 m 900 5100 900 6195 105 arcto 4 {pop} repeat
+  900 6300 3495 6300 105 arcto 4 {pop} repeat
+  3600 6300 3600 5205 105 arcto 4 {pop} repeat
+  3600 5100 1005 5100 105 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+gs  clippath
+2280 3885 m 2220 3885 l 2220 4036 l 2250 3916 l 2280 4036 l cp
+eoclip
+n 2250 5100 m
+ 2250 3900 l gs col0 s gr gr
+
+% arrowhead
+n 2280 4036 m 2250 3916 l 2220 4036 l 2280 4036 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+2280 1335 m 2220 1335 l 2220 1486 l 2250 1366 l 2280 1486 l cp
+eoclip
+n 2250 2700 m
+ 2250 1350 l gs col0 s gr gr
+
+% arrowhead
+n 2280 1486 m 2250 1366 l 2220 1486 l 2280 1486 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+4365 930 m 4365 870 l 4214 870 l 4334 900 l 4214 930 l cp
+eoclip
+n 3450 900 m
+ 4350 900 l gs col0 s gr gr
+
+% arrowhead
+n 4214 930 m 4334 900 l 4214 870 l 4214 930 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+7665 930 m 7665 870 l 7514 870 l 7634 900 l 7514 930 l cp
+eoclip
+n 6750 900 m
+ 7650 900 l gs col0 s gr gr
+
+% arrowhead
+n 7514 930 m 7634 900 l 7514 870 l 7514 930 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+8820 2115 m 8880 2115 l 8880 1964 l 8850 2084 l 8820 1964 l cp
+eoclip
+n 8850 1350 m
+ 8850 2100 l gs col0 s gr gr
+
+% arrowhead
+n 8820 1964 m 8850 2084 l 8880 1964 l 8820 1964 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+6735 3270 m 6735 3330 l 6886 3330 l 6766 3300 l 6886 3270 l cp
+eoclip
+n 7650 3300 m
+ 6750 3300 l gs col0 s gr gr
+
+% arrowhead
+n 6886 3270 m 6766 3300 l 6886 3330 l 6886 3270 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+8820 5265 m 8880 5265 l 8880 5114 l 8850 5234 l 8820 5114 l cp
+eoclip
+n 8850 4500 m
+ 8850 5250 l gs col0 s gr gr
+
+% arrowhead
+n 8820 5114 m 8850 5234 l 8880 5114 l 8820 5114 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+8820 7365 m 8880 7365 l 8880 7214 l 8850 7334 l 8820 7214 l cp
+eoclip
+n 8850 6150 m
+ 8850 7350 l gs col0 s gr gr
+
+% arrowhead
+n 8820 7214 m 8850 7334 l 8880 7214 l 8820 7214 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+5580 1335 m 5520 1335 l 5520 1486 l 5550 1366 l 5580 1486 l cp
+eoclip
+n 5550 2850 m
+ 5550 1350 l gs col0 s gr gr
+
+% arrowhead
+n 5580 1486 m 5550 1366 l 5520 1486 l 5580 1486 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+n 900 2700 m 3600 2700 l 3600 3900 l 900 3900 l
+ cp gs col0 s gr 
+/Helvetica-iso ff 180.00 scf sf
+9150 4875 m
+gs 1 -1 sc (Yes) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+7275 3150 m
+gs 1 -1 sc (No) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2250 5625 m
+gs 1 -1 sc (the standard deviation) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2250 5850 m
+gs 1 -1 sc (of the noise within the) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2250 5400 m
+gs 1 -1 sc (1. Get an estimate for) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2250 6075 m
+gs 1 -1 sc (whole un-transformed image) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2175 3600 m
+gs 1 -1 sc (to the noisy image) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2175 3150 m
+gs 1 -1 sc (2. Apply fully decimated) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2175 3375 m
+gs 1 -1 sc (orthogonal wavelet transform) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+450 6300 m
+gs 1 -1 sc (Start) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+10575 8850 m
+gs 1 -1 sc (End) dup sw pop 2 div neg 0 rm  col0 sh gr
+$F2psEnd
+rs

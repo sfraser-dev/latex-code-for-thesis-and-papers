@@ -1,0 +1,5 @@
+original timeFreq figure done on ara3 linux partition.
+kelvin has a slightly different version of linux than ara3.
+kelvin did not export fig file to pstex file with the y-axis "frequency"
+title in the correct vertical orientation (it made it horizontal).
+SOLUTION: ftp fig file to ara3, export to pstex file there, ftp back to kelvin

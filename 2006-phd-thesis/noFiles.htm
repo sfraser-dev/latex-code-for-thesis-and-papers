@@ -1,0 +1,259 @@
+<html><head><title>LaTeX Tricks: Theses</title></head>
+
+<body>
+
+<h2><a name="top">Theses</a><a></a></h2>
+
+<a><img src="noFiles_files/warning.gif" align="bottom"><strong>Warning:</strong>
+Are you sure you want to do this?  It's not too late to turn back...
+<img src="noFiles_files/warning.gif" align="bottom">
+ </a><p>
+
+<a>So you're thinking about writing up your thesis, huh?  If you're that
+far, you've probably run across LaTeX a few
+times already ("<em>Ha! Try hundreds!</em>")  A thesis looks like a
+huge pain to TeX, but don't freak---a lot
+of the work has been done for you already.  The University distributes
+a style file with all the specifics demanded by the Library hard-coded.
+ </a></p><p>
+<a>Of course this means <em>you shouldn't change things!</em>
+ </a></p><p>
+<a>So, in fact, there's not a lot of LaTeX
+tricks and hints specific to writing theses that don't apply to any old
+LaTeX document.
+ </a></p><p>
+<a>One thing <strong>in particular</strong> you should look at is the 
+</a><a href="#example">example thesis</a> distributed along with the style file.
+
+Here's a few other things about LaTeX'ing theses:
+</p><ul>
+<li><a href="#example">example</a> thesis
+</li><li><a href="http://www.iam.ubc.ca/%7Enewbury/tex/bibtex.html">bibtex</a>
+</li><li><a href="http://www.iam.ubc.ca/%7Enewbury/tex/page-set-up.html#headers">headers</a> with chapter
+	titles, current date, etc. (Good for Drafts)
+</li><li><a href="#chlists">changing</a> Table of Contents,
+	List of Figures, List of Tables
+</li><li><a href="#listofnotation">List of Notation</a>
+</li><li><a href="#title">Title page</a> (IAM reference)
+</li><li> <a href="http://www.iam.ubc.ca/%7Enewbury/tex/oral_programme.html">Final Oral Exam Programme</a>
+</li></ul>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/title.html#contents">Table of Contents</a>]
+
+<hr>
+<h3><a name="example">An Example Thesis</a></h3>
+Whoever made up the <tt>thesis.sty</tt> style file in the first place was
+kind enough to come up with a little example thesis, too.  It tells you what
+there is to a LaTeX'd thesis, what commands to call, and stuff like that.
+It appears that the example files included below are the same as the ones
+<a href="http://www.math.ubc.ca/%7Edjun/djun.html">Djun</a> just "updated" on
+the Math network.
+ <p>
+<a name="style-guide"><b><font size="+3">W</font>arning:</b></a>
+(and I'm serious this time!)
+</p><blockquote>
+The style file <tt>thesis.sty</tt>  and the example thesis
+were generated in <b>1989</b>, so it claims.  The <em>very specific format</em>
+demanded by the Library may have <strong>changed</strong> between then
+and now!  Use <tt>thesis.sty</tt> and the example thesis to get things up 
+and running and edited, but before you get your thesis signed and submitted,
+<b>check with the Library</b> and read <a href="http://unixg.ubc.ca:7001/1m/about-libraries/general-guides/theses.txt"><strong>Instructions for the
+Preparation of Graduate Theses</strong></a> available from Graduate Studies.
+</blockquote>
+
+The example thesis has these parts.  You can <b>view</b> the files and
+then download them with <em>File/Save_As</em>.  Just in case it's not
+obvious, the <tt>xxxxx xxxx</tt> in these files is where you type
+<em>your</em> text...
+
+<dl><dt><img src="noFiles_files/red.gif"> <strong>Abstract</strong>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/abstract.tex">view</a>]
+</dt><dd> Check with the <a href="#style-guide">Thesis Style Guide</a> for where
+to put Abstract and how to number its page(s).
+
+</dd><dt><img src="noFiles_files/red.gif"> <strong>Acknowledgements</strong>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/acknlgmt.tex">view</a>]
+</dt><dd> Check with the <a href="#style-guide">Thesis Style Guide</a> for where
+to put Acknowledgements and how to number the page.  Check with your
+supervisor for the politics of whom to mention...
+
+</dd><dt><img src="noFiles_files/red.gif"> <strong>Appendix</strong>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/appendix.tex">view</a>]
+</dt><dd> The <code>\appendix</code> command does all sorts of weird and wonderful
+things, like resetting the <code>\thechapter</code> counter (see
+<a href="http://www.iam.ubc.ca/%7Enewbury/tex/numbering.html">Numbering</a>,
+<a href="http://www.iam.ubc.ca/%7Enewbury/tex/title.html#contents">Table of Contents</a>), changes the
+word "Chapter" to "Appendix", and so on.  Just call <code>\appendix</code>
+once---after that, all <code>\begin{chapter}</code>'s will give Appendix B,
+Appendix C and so on.  You might want to change the 
+<a href="http://www.iam.ubc.ca/%7Enewbury/tex/page-set-up.html#headers">headers</a> in the appendices, too.
+
+</dd><dt><img src="noFiles_files/red.gif"> <strong>References</strong>
+(not BibTeX'd)
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/bib.tex">view</a>]
+</dt><dd>This Bibliography example does things the one-time-only, hard way.
+Since you're probably gonna wring a bunch o' papers out of your thesis, too,
+you're better off using BibTeX to get
+your <a href="http://www.iam.ubc.ca/%7Enewbury/tex/bibtex.html">List of References</a>.
+
+</dd><dt><img src="noFiles_files/red.gif"> <strong>Chapter 1</strong>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/chapter1.tex">view]</a>
+</dt><dd>This file shows some of the more common LaTeX
+features like figures, tables, and sections.
+
+</dd><dt><img src="noFiles_files/red.gif"> <strong>Chapter 2</strong>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/chapter2.tex">view</a>]
+</dt><dd>Same as Chapter 1.
+
+</dd><dt><img src="noFiles_files/red.gif"> <strong>Table of Contents, Lists of Figures,
+Tables</strong>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/lists.tex">view</a>]
+</dt><dd>Don't trust the order these Lists are called in.  Check the 
+<a href="#style-guide">Thesis Style Guide</a> for the correct order.  The
+Guide also mentions what to do with a
+<a href="#listofnotation">List of Notation</a>.
+
+</dd><dt><img src="noFiles_files/red.gif"> <strong>Release Form</strong>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/relform.tex">view</a>]
+</dt><dd>The <code>\authorizepage</code> hard-coded into the <tt>thesis.sty</tt>
+file is <strong>obsolete</strong>!  You can get the correct form
+from the Library.
+
+</dd><dt><img src="noFiles_files/red.gif">  <strong>A root file</strong>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/thesis.tex">view</a>]
+</dt><dd>You don't want to "re-compile" your whole thesis just to check the
+spacing around equation 4.3.8.  It's better to break it up into pieces
+that you <code>\include</code> piece by piece.  This root file
+(called <tt>thesis.tex</tt> just so you can type <tt>latex thesis</tt> and
+impress the people around you...) is where you set the order of all
+the sections of the thesis.  Want your Appendices <em>after</em> the
+List of References?  Just <code>\include{bib}</code> and <em>then</em>
+<code>\include{appendix}</code>.
+
+</dd><dt><img src="noFiles_files/red.gif"> <a name="title"><strong>Title Page</strong></a>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/example_thesis/title.tex">view</a>]
+</dt><dd>Ahh, the Title Page.  Here's where using
+LaTeX pays off big.  This sample title page
+shows the fields you need to fill out.  Notice the double
+slash <code>\\</code> in the <code>\previousdegrees</code> field
+to list more than one degree.  Also, you may want to use
+<pre>\department{Department of Mathematics}
+</pre>
+<font size="+1"><strong>IAM</strong></font> Students:  You need to mention
+the IAM on your title page.  Try it like this:
+<pre>\department{Department of Mathematics \\ Institute of Applied Mathematics}
+</pre>
+Honestly, the order of these two is a bit mysterious.  You might want
+to check the politics with your supervisor...
+ <p>
+Finally, don't forget the one little command <code>\titlepage</code> which
+does all the formatting and returns an awesome looking title page!
+</p></dd></dl>
+
+<hr>
+<h3>
+<a name="chlists">Changing the Table of Contents, List of Figures, Tables</a>
+</h3>
+When you call <code>\tableofcontents</code>, <code>\listoftables</code>, or
+<code>\listoffigures</code> in your source code <tt>thesis.tex</tt>, say,
+LaTeX generates files <tt>thesis.toc</tt>, 
+<tt>thesis.lot</tt>, and <tt>thesis.lof</tt>, respectively.  In these
+files are the LaTeX sources for these
+blocks of text.  If you don't like the way they look by default (maybe
+too much space around some symbols, or no bold on math symbols in Chapter
+titles) <strong>you can edit these files</strong>.  
+ <p>
+So here's what to do:
+</p><ol>
+<li> <tt>latex thesis.tex</tt>
+</li><li> <tt>latex thesis.tex</tt> (the usual
+gotta-LaTeX-twice...)
+</li><li> Edit the <tt>thesis.</tt>[<tt>toc</tt>|<tt>lot</tt>|<tt>lof</tt>] files
+</li><li> <tt>late</tt>... AHH! But if I run <tt>latex</tt> again, it will 
+over-write my edited files!  Exactly!  So, you can:
+<ul>
+<li> <tt>cp</tt> the edited files elsewhere and then <tt>mv</tt> them back, or
+</li><li> insert a <code>\nofiles</code> command in the preamble of the
+source file.  This suppresses the output of new files.
+</li></ul>
+</li></ol>
+
+
+
+<hr>
+<h3><a name="listofnotation">List of Notation</a></h3>
+
+<p>
+You can generate a List of Notation describing all your variables and
+where they first appear.  It's not totally automated like, say, 
+<code>\listoffigures</code> but it's a whole lot better than doing it
+by hand.  (courtesy of
+<a href="http://www.math.ubc.ca/%7Ehaigh/haigh.html">Sue</a> and
+<a href="http://www.math.ubc.ca/%7Ewatmough/watmough.html">James</a>)
+
+</p><p>
+<img src="noFiles_files/listofnotation.gif">
+
+</p><p>
+If you have one of these lists, it is supposed
+to go just after the main body of the thesis, just before the Bibliography.
+But you might want to check with the Library before you make a final copy...
+
+</p><h4>How to make a List of Notation</h4>
+<p>
+First you make a new file <tt>symbols.tex</tt>, say, with lines having
+this format:
+</p><pre>\addnotation \alpha: {some variable that means something to me}{alpha}
+</pre>
+where
+<dl><dt><code>\addnotation</code>
+</dt><dd>a TeX command you need to have
+</dd><dt><code>\alpha:</code>
+</dt><dd>the LaTeX code for the symbol.  You don't
+have to add $...$ around math stuff.  Non-math symbols? Try it out.
+<em>Be sure to add a trailing colon</em> : to separate the entries.
+</dd><dt><code>{some variable that means something to me}</code>
+</dt><dd>the description of the variable, enclosed in curly brackets {}
+</dd><dt><code>{alpha}</code>
+</dt><dd>a label that you'll use to tag the first occurance of the symbol.  See
+the example source <tt>.tex</tt> file below.
+</dd></dl>
+
+<p>
+In the preamble of the main LaTeX file, add these
+lines:
+</p><pre>\def\listofnotations{\input symbols.tex \clearpage}
+\def\addnotation #1: #2#3{$#1$\&gt; \parbox{5in}{#2 \dotfill  \pageref{#3}}\\}
+\def\newnot#1{\label{#1}}
+</pre>
+
+Where you want to put in the List of Notation, just put in the source file:
+<pre>\markboth{List of Notation \hfill}{List of Notation \hfill}
+\listofnotation
+</pre>
+The first line here is the change the page
+<a href="http://www.iam.ubc.ca/%7Enewbury/tex/page-set-up.html#headers">headers</a>.
+
+Finally, in the source for the main body of the text, the first time
+you use a symbol (well, on the page where you first use the symbol),
+include the <code>\newnot</code> command with the label you chose for
+the symbol:
+<pre>...
+\end{equation}
+where $\alpha$ \newnot{alpha} is some variable that means something to me.
+</pre>
+Now that you've seen how it works, you can change it to include math and 
+non-math symbols, use more or less space between the columns, get rid
+of <code>\dotfill</code> and so on.
+
+<hr>
+[<a href="http://www.iam.ubc.ca/%7Enewbury/tex/title.html#contents">Table of Contents</a>]
+[<a href="#top">Top of Theses</a>]
+
+<hr>
+<a href="http://www.iam.ubc.ca/spider/newbury/home.html">Peter Newbury</a> 
+<em>e-mail</em>: <tt>newbury@math.ubc.ca</tt>
+<br>       
+Last update: 5 March 1996
+<p>
+
+</p></body></html>

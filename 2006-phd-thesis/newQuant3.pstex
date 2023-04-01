@@ -1,0 +1,486 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: newQuant3.pstex
+%%Creator: fig2dev Version 3.2 Patchlevel 3c
+%%CreationDate: Tue May 13 14:04:32 2003
+%%For: eng565@ara3.eng.abdn.ac.uk (Stewart Ian Fraser)
+%%BoundingBox: 0 0 742 378
+%%Magnification: 1.0000
+%%EndComments
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/col-1 {0 setgray} bind def
+/col0 {0.000 0.000 0.000 srgb} bind def
+/col1 {0.000 0.000 1.000 srgb} bind def
+/col2 {0.000 1.000 0.000 srgb} bind def
+/col3 {0.000 1.000 1.000 srgb} bind def
+/col4 {1.000 0.000 0.000 srgb} bind def
+/col5 {1.000 0.000 1.000 srgb} bind def
+/col6 {1.000 1.000 0.000 srgb} bind def
+/col7 {1.000 1.000 1.000 srgb} bind def
+/col8 {0.000 0.000 0.560 srgb} bind def
+/col9 {0.000 0.000 0.690 srgb} bind def
+/col10 {0.000 0.000 0.820 srgb} bind def
+/col11 {0.530 0.810 1.000 srgb} bind def
+/col12 {0.000 0.560 0.000 srgb} bind def
+/col13 {0.000 0.690 0.000 srgb} bind def
+/col14 {0.000 0.820 0.000 srgb} bind def
+/col15 {0.000 0.560 0.560 srgb} bind def
+/col16 {0.000 0.690 0.690 srgb} bind def
+/col17 {0.000 0.820 0.820 srgb} bind def
+/col18 {0.560 0.000 0.000 srgb} bind def
+/col19 {0.690 0.000 0.000 srgb} bind def
+/col20 {0.820 0.000 0.000 srgb} bind def
+/col21 {0.560 0.000 0.560 srgb} bind def
+/col22 {0.690 0.000 0.690 srgb} bind def
+/col23 {0.820 0.000 0.820 srgb} bind def
+/col24 {0.500 0.190 0.000 srgb} bind def
+/col25 {0.630 0.250 0.000 srgb} bind def
+/col26 {0.750 0.380 0.000 srgb} bind def
+/col27 {1.000 0.500 0.500 srgb} bind def
+/col28 {1.000 0.630 0.630 srgb} bind def
+/col29 {1.000 0.750 0.750 srgb} bind def
+/col30 {1.000 0.880 0.880 srgb} bind def
+/col31 {1.000 0.840 0.000 srgb} bind def
+
+end
+save
+newpath 0 378 moveto 0 0 lineto 742 0 lineto 742 378 lineto closepath clip newpath
+-34.0 395.0 translate
+1 -1 scale
+
+/cp {closepath} bind def
+/ef {eofill} bind def
+/gr {grestore} bind def
+/gs {gsave} bind def
+/sa {save} bind def
+/rs {restore} bind def
+/l {lineto} bind def
+/m {moveto} bind def
+/rm {rmoveto} bind def
+/n {newpath} bind def
+/s {stroke} bind def
+/sh {show} bind def
+/slc {setlinecap} bind def
+/slj {setlinejoin} bind def
+/slw {setlinewidth} bind def
+/srgb {setrgbcolor} bind def
+/rot {rotate} bind def
+/sc {scale} bind def
+/sd {setdash} bind def
+/ff {findfont} bind def
+/sf {setfont} bind def
+/scf {scalefont} bind def
+/sw {stringwidth} bind def
+/tr {translate} bind def
+/tnt {dup dup currentrgbcolor
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add srgb}
+  bind def
+/shd {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+  4 -2 roll mul srgb} bind def
+/reencdict 12 dict def /ReEncode { reencdict begin
+/newcodesandnames exch def /newfontname exch def /basefontname exch def
+/basefontdict basefontname findfont def /newfont basefontdict maxlength dict def
+basefontdict { exch dup /FID ne { dup /Encoding eq
+{ exch dup length array copy newfont 3 1 roll put }
+{ exch newfont 3 1 roll put } ifelse } { pop pop } ifelse } forall
+newfont /FontName newfontname put newcodesandnames aload pop
+128 1 255 { newfont /Encoding get exch /.notdef put } for
+newcodesandnames length 2 idiv { newfont /Encoding get 3 1 roll put } repeat
+newfontname newfont definefont pop end } def
+/isovec [
+8#055 /minus 8#200 /grave 8#201 /acute 8#202 /circumflex 8#203 /tilde
+8#204 /macron 8#205 /breve 8#206 /dotaccent 8#207 /dieresis
+8#210 /ring 8#211 /cedilla 8#212 /hungarumlaut 8#213 /ogonek 8#214 /caron
+8#220 /dotlessi 8#230 /oe 8#231 /OE
+8#240 /space 8#241 /exclamdown 8#242 /cent 8#243 /sterling
+8#244 /currency 8#245 /yen 8#246 /brokenbar 8#247 /section 8#250 /dieresis
+8#251 /copyright 8#252 /ordfeminine 8#253 /guillemotleft 8#254 /logicalnot
+8#255 /hyphen 8#256 /registered 8#257 /macron 8#260 /degree 8#261 /plusminus
+8#262 /twosuperior 8#263 /threesuperior 8#264 /acute 8#265 /mu 8#266 /paragraph
+8#267 /periodcentered 8#270 /cedilla 8#271 /onesuperior 8#272 /ordmasculine
+8#273 /guillemotright 8#274 /onequarter 8#275 /onehalf
+8#276 /threequarters 8#277 /questiondown 8#300 /Agrave 8#301 /Aacute
+8#302 /Acircumflex 8#303 /Atilde 8#304 /Adieresis 8#305 /Aring
+8#306 /AE 8#307 /Ccedilla 8#310 /Egrave 8#311 /Eacute
+8#312 /Ecircumflex 8#313 /Edieresis 8#314 /Igrave 8#315 /Iacute
+8#316 /Icircumflex 8#317 /Idieresis 8#320 /Eth 8#321 /Ntilde 8#322 /Ograve
+8#323 /Oacute 8#324 /Ocircumflex 8#325 /Otilde 8#326 /Odieresis 8#327 /multiply
+8#330 /Oslash 8#331 /Ugrave 8#332 /Uacute 8#333 /Ucircumflex
+8#334 /Udieresis 8#335 /Yacute 8#336 /Thorn 8#337 /germandbls 8#340 /agrave
+8#341 /aacute 8#342 /acircumflex 8#343 /atilde 8#344 /adieresis 8#345 /aring
+8#346 /ae 8#347 /ccedilla 8#350 /egrave 8#351 /eacute
+8#352 /ecircumflex 8#353 /edieresis 8#354 /igrave 8#355 /iacute
+8#356 /icircumflex 8#357 /idieresis 8#360 /eth 8#361 /ntilde 8#362 /ograve
+8#363 /oacute 8#364 /ocircumflex 8#365 /otilde 8#366 /odieresis 8#367 /divide
+8#370 /oslash 8#371 /ugrave 8#372 /uacute 8#373 /ucircumflex
+8#374 /udieresis 8#375 /yacute 8#376 /thorn 8#377 /ydieresis] def
+/Helvetica /Helvetica-iso isovec ReEncode
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y tr xrad yrad sc 0 0 1 startangle endangle arc
+	closepath
+	savematrix setmatrix
+	} def
+
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+
+$F2psBegin
+%%Page: 1 1
+10 setmiterlimit
+ 0.06000 0.06000 sc
+%
+% Fig objects follow
+%
+7.500 slw
+% Ellipse
+n 4650 5400 84 84 0 360 DrawEllipse gs 0.00 setgray ef gr gs col0 s gr
+
+% Ellipse
+n 8850 5400 84 84 0 360 DrawEllipse gs 0.00 setgray ef gr gs col0 s gr
+
+% Polyline
+n 3750 5400 m
+ 9750 5400 l gs col0 s gr 
+% Polyline
+n 3750 5475 m
+ 3750 5100 l gs col0 s gr 
+% Polyline
+n 9750 5475 m
+ 9750 5100 l gs col0 s gr 
+% Polyline
+gs  clippath
+4665 5205 m 4665 5145 l 4514 5145 l 4634 5175 l 4514 5205 l cp
+3735 5145 m 3735 5205 l 3886 5205 l 3766 5175 l 3886 5145 l cp
+eoclip
+n 3750 5175 m
+ 4650 5175 l gs col0 s gr gr
+
+% arrowhead
+n 3886 5145 m 3766 5175 l 3886 5205 l 3886 5145 l  cp gs 0.00 setgray ef gr  col0 s
+% arrowhead
+n 4514 5205 m 4634 5175 l 4514 5145 l 4514 5205 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+9765 5205 m 9765 5145 l 9614 5145 l 9734 5175 l 9614 5205 l cp
+8835 5145 m 8835 5205 l 8986 5205 l 8866 5175 l 8986 5145 l cp
+eoclip
+n 8850 5175 m
+ 9750 5175 l gs col0 s gr gr
+
+% arrowhead
+n 8986 5145 m 8866 5175 l 8986 5205 l 8986 5145 l  cp gs 0.00 setgray ef gr  col0 s
+% arrowhead
+n 9614 5205 m 9734 5175 l 9614 5145 l 9614 5205 l  cp gs 0.00 setgray ef gr  col0 s
+/Helvetica-iso ff 180.00 scf sf
+4200 5100 m
+gs 1 -1 sc (X2) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+9300 5100 m
+gs 1 -1 sc (X2) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+4650 5775 m
+gs 1 -1 sc (T1+X2) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8850 5775 m
+gs 1 -1 sc (T2-X2) dup sw pop 2 div neg 0 rm  col0 sh gr
+% Ellipse
+n 3741 1800 84 84 0 360 DrawEllipse gs 0.00 setgray ef gr gs col0 s gr
+
+% Ellipse
+n 9741 1800 84 84 0 360 DrawEllipse gs 0.00 setgray ef gr gs col0 s gr
+
+% Ellipse
+n 8250 2700 84 84 0 360 DrawEllipse gs 0.00 setgray ef gr gs col0 s gr
+
+% Ellipse
+n 5250 2700 84 84 0 360 DrawEllipse gs 0.00 setgray ef gr gs col0 s gr
+
+% Ellipse
+n 11915 1808 84 84 0 360 DrawEllipse gs 0.00 setgray ef gr gs col0 s gr
+
+% Ellipse
+n 1565 1808 84 84 0 360 DrawEllipse gs 0.00 setgray ef gr gs col0 s gr
+
+% Polyline
+n 1575 1875 m
+ 1575 1950 l gs col0 s gr 
+% Polyline
+n 3750 1875 m
+ 3750 1950 l gs col0 s gr 
+% Polyline
+n 9750 1875 m
+ 9750 1950 l gs col0 s gr 
+% Polyline
+n 3675 1800 m
+ 9675 1800 l gs col0 s gr 
+% Polyline
+n 11925 1725 m
+ 11925 1875 l gs col0 s gr 
+% Polyline
+ [60] 0 sd
+n 1575 1800 m
+ 1575 300 l gs col0 s gr  [] 0 sd
+% Polyline
+n 1575 1725 m
+ 1575 1875 l gs col0 s gr 
+% Polyline
+ [60] 0 sd
+n 3750 300 m
+ 3750 1725 l gs col0 s gr  [] 0 sd
+% Polyline
+ [60] 0 sd
+n 9750 300 m
+ 9750 1725 l gs col0 s gr  [] 0 sd
+% Polyline
+gs  clippath
+3735 570 m 3735 630 l 3886 630 l 3766 600 l 3886 570 l cp
+eoclip
+n 3750 600 m
+ 5250 600 l gs col0 s gr gr
+
+% arrowhead
+n 3886 570 m 3766 600 l 3886 630 l 3886 570 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+9765 630 m 9765 570 l 9614 570 l 9734 600 l 9614 630 l cp
+eoclip
+n 8250 600 m
+ 9750 600 l gs col0 s gr gr
+
+% arrowhead
+n 9614 630 m 9734 600 l 9614 570 l 9614 630 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+ [60] 0 sd
+n 11925 1800 m
+ 11925 300 l gs col0 s gr  [] 0 sd
+% Polyline
+gs  clippath
+3765 930 m 3765 870 l 3614 870 l 3734 900 l 3614 930 l cp
+1560 870 m 1560 930 l 1711 930 l 1591 900 l 1711 870 l cp
+eoclip
+n 1575 900 m
+ 3750 900 l gs col0 s gr gr
+
+% arrowhead
+n 1711 870 m 1591 900 l 1711 930 l 1711 870 l  cp gs 0.00 setgray ef gr  col0 s
+% arrowhead
+n 3614 930 m 3734 900 l 3614 870 l 3614 930 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+11940 930 m 11940 870 l 11789 870 l 11909 900 l 11789 930 l cp
+9735 870 m 9735 930 l 9886 930 l 9766 900 l 9886 870 l cp
+eoclip
+n 9750 900 m
+ 11925 900 l gs col0 s gr gr
+
+% arrowhead
+n 9886 870 m 9766 900 l 9886 930 l 9886 870 l  cp gs 0.00 setgray ef gr  col0 s
+% arrowhead
+n 11789 930 m 11909 900 l 11789 870 l 11789 930 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+ [60] 0 sd
+n 2175 1800 m
+ 3075 1800 l gs col0 s gr  [] 0 sd
+% Polyline
+n 3075 1800 m
+ 3675 1800 l gs col0 s gr 
+% Polyline
+n 1575 1800 m
+ 2175 1800 l gs col0 s gr 
+% Polyline
+ [60] 0 sd
+n 10425 1800 m
+ 11325 1800 l gs col0 s gr  [] 0 sd
+% Polyline
+n 11325 1800 m
+ 11925 1800 l gs col0 s gr 
+% Polyline
+n 9825 1800 m
+ 10425 1800 l gs col0 s gr 
+% Polyline
+n 3750 2700 m
+ 9750 2700 l gs col0 s gr 
+% Polyline
+n 3750 2625 m
+ 3750 2775 l gs col0 s gr 
+% Polyline
+n 9750 2625 m
+ 9750 2775 l gs col0 s gr 
+% Polyline
+n 5250 2775 m
+ 5250 2850 l gs col0 s gr 
+% Polyline
+n 8250 2775 m
+ 8250 2850 l gs col0 s gr 
+% Polyline
+n 3750 2400 m
+ 3750 2625 l gs col0 s gr 
+% Polyline
+gs  clippath
+5265 2505 m 5265 2445 l 5114 2445 l 5234 2475 l 5114 2505 l cp
+3735 2445 m 3735 2505 l 3886 2505 l 3766 2475 l 3886 2445 l cp
+eoclip
+n 3750 2475 m
+ 5250 2475 l gs col0 s gr gr
+
+% arrowhead
+n 3886 2445 m 3766 2475 l 3886 2505 l 3886 2445 l  cp gs 0.00 setgray ef gr  col0 s
+% arrowhead
+n 5114 2505 m 5234 2475 l 5114 2445 l 5114 2505 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+n 9750 2400 m
+ 9750 2625 l gs col0 s gr 
+% Polyline
+gs  clippath
+8235 2445 m 8235 2505 l 8386 2505 l 8266 2475 l 8386 2445 l cp
+9765 2505 m 9765 2445 l 9614 2445 l 9734 2475 l 9614 2505 l cp
+eoclip
+n 9750 2475 m
+ 8250 2475 l gs col0 s gr gr
+
+% arrowhead
+n 9614 2505 m 9734 2475 l 9614 2445 l 9614 2505 l  cp gs 0.00 setgray ef gr  col0 s
+% arrowhead
+n 8386 2445 m 8266 2475 l 8386 2505 l 8386 2445 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+15.000 slw
+n 600 4200 m
+ 12900 4200 l gs col0 s gr 
+% Polyline
+7.500 slw
+n 4650 5325 m
+ 4650 4725 l gs col0 s gr 
+% Polyline
+n 8850 5325 m
+ 8850 4725 l gs col0 s gr 
+% Polyline
+gs  clippath
+8865 4905 m 8865 4845 l 8714 4845 l 8834 4875 l 8714 4905 l cp
+4635 4845 m 4635 4905 l 4786 4905 l 4666 4875 l 4786 4845 l cp
+eoclip
+n 4650 4875 m
+ 8850 4875 l gs col0 s gr gr
+
+% arrowhead
+n 4786 4845 m 4666 4875 l 4786 4905 l 4786 4845 l  cp gs 0.00 setgray ef gr  col0 s
+% arrowhead
+n 8714 4905 m 8834 4875 l 8714 4845 l 8714 4905 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+2 slj
+n 2175 1575 m 2172 1577 l 2166 1581 l 2156 1587 l 2143 1596 l 2127 1607 l
+ 2109 1620 l 2092 1633 l 2075 1647 l 2060 1661 l 2046 1676 l
+ 2035 1692 l 2028 1708 l 2025 1725 l 2029 1742 l 2038 1755 l
+ 2052 1762 l 2067 1765 l 2083 1764 l 2100 1762 l 2117 1761 l
+ 2133 1760 l 2148 1763 l 2162 1770 l 2171 1783 l 2175 1800 l
+ 2172 1817 l 2165 1833 l 2154 1849 l 2140 1864 l 2125 1878 l
+ 2108 1892 l 2091 1905 l 2073 1918 l 2057 1929 l 2044 1938 l
+ 2034 1944 l 2028 1948 l
+ 2025 1950 l gs col0 s gr 
+% Polyline
+n 3075 1575 m 3072 1577 l 3066 1581 l 3056 1587 l 3043 1596 l 3027 1607 l
+ 3009 1620 l 2992 1633 l 2975 1647 l 2960 1661 l 2946 1676 l
+ 2935 1692 l 2928 1708 l 2925 1725 l 2929 1742 l 2938 1755 l
+ 2952 1762 l 2967 1765 l 2983 1764 l 3000 1762 l 3017 1761 l
+ 3033 1760 l 3048 1763 l 3062 1770 l 3071 1783 l 3075 1800 l
+ 3072 1817 l 3065 1833 l 3054 1849 l 3040 1864 l 3025 1878 l
+ 3008 1892 l 2991 1905 l 2973 1918 l 2957 1929 l 2944 1938 l
+ 2934 1944 l 2928 1948 l
+ 2925 1950 l gs col0 s gr 
+% Polyline
+n 10425 1575 m 10422 1577 l 10416 1581 l 10406 1587 l 10393 1596 l 10377 1607 l
+ 10359 1620 l 10342 1633 l 10325 1647 l 10310 1661 l 10296 1676 l
+ 10285 1692 l 10278 1708 l 10275 1725 l 10279 1742 l 10288 1755 l
+ 10302 1762 l 10317 1765 l 10333 1764 l 10350 1762 l 10367 1761 l
+ 10383 1760 l 10398 1763 l 10412 1770 l 10421 1783 l 10425 1800 l
+ 10422 1817 l 10415 1833 l 10404 1849 l 10390 1864 l 10375 1878 l
+ 10358 1892 l 10341 1905 l 10323 1918 l 10307 1929 l 10294 1938 l
+ 10284 1944 l 10278 1948 l
+ 10275 1950 l gs col0 s gr 
+% Polyline
+n 11325 1575 m 11322 1577 l 11316 1581 l 11306 1587 l 11293 1596 l 11277 1607 l
+ 11259 1620 l 11242 1633 l 11225 1647 l 11210 1661 l 11196 1676 l
+ 11185 1692 l 11178 1708 l 11175 1725 l 11179 1742 l 11188 1755 l
+ 11202 1762 l 11217 1765 l 11233 1764 l 11250 1762 l 11267 1761 l
+ 11283 1760 l 11298 1763 l 11312 1770 l 11321 1783 l 11325 1800 l
+ 11322 1817 l 11315 1833 l 11304 1849 l 11290 1864 l 11275 1878 l
+ 11258 1892 l 11241 1905 l 11223 1918 l 11207 1929 l 11194 1938 l
+ 11184 1944 l 11178 1948 l
+ 11175 1950 l gs col0 s gr 
+/Helvetica-iso ff 180.00 scf sf
+1575 2175 m
+gs 1 -1 sc (Lowest valued) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+1575 2400 m
+gs 1 -1 sc (wavelet coefficient) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+11925 2175 m
+gs 1 -1 sc (Highest valued) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+11925 2400 m
+gs 1 -1 sc (wavelet coefficient) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+3750 2175 m
+gs 1 -1 sc (T1) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+9750 2175 m
+gs 1 -1 sc (T2) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+6750 675 m
+gs 1 -1 sc (Wavelet coefficients within range) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+10950 600 m
+gs 1 -1 sc (Wavelet coefficients) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+10950 825 m
+gs 1 -1 sc (out of range) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2550 600 m
+gs 1 -1 sc (Wavelet coefficients) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+2550 825 m
+gs 1 -1 sc (out of range) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+5250 3075 m
+gs 1 -1 sc (T1+X1) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+8250 3075 m
+gs 1 -1 sc (T2-X1) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+4500 2400 m
+gs 1 -1 sc (X1) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+9000 2400 m
+gs 1 -1 sc (X1) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+6750 6300 m
+gs 1 -1 sc (All wavelet coefficients between T1+X2 and T2-X2 are) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+6750 6525 m
+gs 1 -1 sc (selected to be dequantized in order to recover the embedded watermark bit) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+900 4125 m
+gs 1 -1 sc (Insertion) col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+900 4425 m
+gs 1 -1 sc (Detection) col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+6750 4800 m
+gs 1 -1 sc (Wavelet coefficients within range) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+6750 3375 m
+gs 1 -1 sc (All wavelet coefficients within range are quantized to T1+X1 or T2-X1) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica-iso ff 180.00 scf sf
+6750 3600 m
+gs 1 -1 sc (based upon the value of the watermark bit to be inserted) dup sw pop 2 div neg 0 rm  col0 sh gr
+$F2psEnd
+rs
