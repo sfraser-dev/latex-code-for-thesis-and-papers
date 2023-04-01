@@ -1,0 +1,5 @@
+pdflatex austria07_t4_sent_final_6pages
+bibtex austria07_t4_sent_final_6pages
+pdflatex austria07_t4_sent_final_6pages
+pdflatex austria07_t4_sent_final_6pages
+pdflatex austria07_t4_sent_final_6pages
