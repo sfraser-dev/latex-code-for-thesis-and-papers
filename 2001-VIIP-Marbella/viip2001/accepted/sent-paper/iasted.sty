@@ -1,0 +1,136 @@
+%% Filename: iasted2001.sty
+%%
+%% Author: Ka-Wai Leung, IASTED conference manager
+%% Date: March 2, 2001
+%%
+%% Since this is the first time that IASTED has made a style file available to
+%% authors, this file is NOT guaranteed to work and will more than likely
+%% contain bugs.  It may also NOT work with all version of TeX.  If you notice
+%% any problems or bugs, please contact me at kawai@iasted.com.  I would also welcome
+%% any suggestions that you may have as many of you will have more experience with TeX
+%% than I do.
+%%
+%%
+%% INSTRUCTIONS FOR USE OF THE STYLE FILE.
+%%
+%% The following lines should be placed at the start of the document.
+%%
+%%  \documentclass[twocolumn]{article}
+%%  \usepackage{iasted}
+%%  \usepackage{times}
+%%
+%% The title and author information should be written like this:
+%%
+%%  \title{Paper Title - maximum 10 words}
+%%
+%%  \author{
+%%  First A. Author \\
+%%  Department or Laboratory\\
+%%  University or Company\\
+%%  Address, (if necessary) \\
+%%  City, Province or State, Country \\
+%%  email: email-address \\
+%%  \and
+%%  Second B. Author and Third C. Author\\
+%%  Department or Laboratory\\
+%%  University or Company\\
+%%  Address (if necessary)\\
+%%  City, Province or State, Country \\
+%%  email: email-address \\
+%%  }
+%%
+%%  \maketitle
+%%  \thispagestyle{empty}
+%%
+%%
+%% In order for IASTED to publish your paper, the final manuscrip submitted
+%% should not contain any fixed-resolution bitmap fonts (type 3).  By default,
+%% DVIPS will create a postscript file containing resuolution-specific type 3
+%% bitmattep fonts.  However, if the "www" printer is used to create the postscript
+%% file, dvips can generate file with resolution-independent type 1 fonts:
+%%
+%% dvips -Pwww -o file.ps file.dvi
+%%
+%% Using the "pdflatex" to create a pdf file directly will also achieve the same effect.
+%%
+%% Additional information on this subject can be found on the ADOBE website:
+%%   www.adobe.com/support/techdocs/543e.htm
+%%
+%%
+%% The formatting instructions posted on the web has been prepared using this style
+%% file and you can use the formattinginstructions.tex as an example.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Section Definition
+\renewcommand\section{\@startsection {section}{1}{\z@}{-3.5ex plus-1ex minus
+    -.2ex}{2.3ex plus.2ex minus -.2ex}{\reset@font\large\bf}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex plus-1ex
+    minus-.2ex}{2.3ex plus.2ex minus -.2ex}{\reset@font\large\bf}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-3.25ex plus
+    -1ex minus-.2ex}{2.3ex plus.2ex minus -.2ex}{\reset@font\large\bf}}
+\renewcommand\thesection{\@arabic\c@section.}
+\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+
+%%Title Definition
+\def\@maketitle{\vspace{.5in}
+            {\bf\LARGE\centering \@title \par}
+            \vskip 1em
+            {\normalsize\centering
+                \begin{tabular}[t]{c}\@author
+                \end{tabular}\par}
+                \vfil
+                \vspace{4ex}}
+
+%%Tables and Figures
+
+\long\def\@makecaption#1#2{%
+   \vskip 10\p@
+   \setbox\@tempboxa\hbox{#1. #2}%
+   \ifdim \wd\@tempboxa >\hsize
+       #1. #2\par
+     \else
+       \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+   \fi
+   \vskip 10\p@}
+
+\def\thefigure{\@arabic\c@figure}
+
+\def\fps@figure{tbp}
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{\figurename~\thefigure}
+\def\figure{\@float{figure}}
+\let\endfigure\end@float
+\@namedef{figure*}{\@dblfloat{figure}}
+\@namedef{endfigure*}{\end@dblfloat}
+
+\def\thetable{\@arabic\c@table}
+
+\def\fps@table{tbp}
+\def\ftype@table{2}
+\def\ext@table{lot}
+\def\fnum@table{\tablename~\thetable}
+\def\table{\@float{table}}
+\let\endtable\end@float
+\@namedef{table*}{\@dblfloat{table}}
+\@namedef{endtable*}{\end@dblfloat}
+
+
+%%Layout
+\pagestyle{empty}                         %%%% No page Numbering
+
+\paperheight 11in
+\paperwidth 8.5in
+ 
+\textheight     9.5in
+\columnsep      0.5in
+\textwidth      7in
+\topmargin      -0.25in
+\headheight     0.0in
+\headsep        0.0in
+\oddsidemargin  -0.25in
+\parindent      5ex
+\def\baselinestretch{1}
+\flushbottom
