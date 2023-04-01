@@ -1,0 +1,8 @@
+latex PDCN2austria2HW2_techreport
+latex PDCN2austria2HW2_techreport
+bibtex PDCN2austria2HW2_techreport
+latex PDCN2austria2HW2_techreport
+bibtex PDCN2austria2HW2_techreport
+latex PDCN2austria2HW2_techreport
+latex PDCN2austria2HW2_techreport
+dvips PDCN2austria2HW2_techreport.dvi -o PDCN2austria2HW2_techreport.ps
