@@ -1,0 +1,662 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{iasted}
+\usepackage{floatflt}
+\usepackage{amsfonts}
+%\usepackage[pdftex]{graphicx,color}
+\usepackage[dvips]{graphicx}
+
+\usepackage{times}
+
+%\setlength{\intextsep}{0.2cm}
+%\setlength{\dbltextfloatsep}{-0.5cm}
+%\setlength{\textfloatsep}{-0.5cm}
+%\setlength{\belowcaptionskip}{-0.5cm}
+
+\begin{document}
+
+\date{}
+
+%\title{AN IMPROVED REVERSIBLE WATERMARKING ALGORITHM APPLIED TO MEDICAL IMAGES}
+%\title{A HIGH CAPACITY REVERSIBLE WATERMARKING ALGORITHM FOR DIGITAL IMAGES}
+\title{A HIGH CAPACITY REVERSIBLE WATERMARKING TECHNIQUE BASED ON DIFFERENCE EXPANSION}
+
+\author{Stewart I. Fraser \\
+        Department of Engineering \\
+        University of Aberdeen \\
+        Aberdeen, AB24 3UE, UK \\
+        Email: s.i.fraser@abdn.ac.uk 
+        \and
+        Alastair R. Allen \\
+        Department of Engineering \\
+        University of Aberdeen \\
+        Aberdeen, AB24 3UE, UK \\
+        Email: a.allen@abdn.ac.uk
+}
+
+\addtolength{\parskip}{0.4cm}
+
+\maketitle
+\thispagestyle{empty}
+
+%%%% Replace with your abstract.
+\noindent
+{\bf\normalsize ABSTRACT}\newline {
+Reversible image watermarking is a special case of watermarking that can embed/recover 
+a user payload {\bf and} restore the original un-watermarked image {\bf exactly}.
+Being able to restore the original image is important for modalities such as medical and military imaging.
+This paper presents a high capacity reversible watermarking scheme based on difference
+expansion. The novel method presented here improves upon a previous scheme by introducing the
+companding technique. Experiments compare the novel and previous schemes using test, medical and military images.
+It can be seen from the results that the novel scheme has a significantly higher payload hiding capacity than the previous scheme.
+
+
+\vspace{2ex}
+
+
+%%%% Replace with your keywords. 
+\noindent
+{\bf\normalsize KEY WORDS}\newline
+{Digital Image Processing, Reversible Watermarking, Medical and Military Imaging.}
+
+\section{Introduction}
+In digital image watermarking, a hardly noticeable noise-like signal is embedded into an image to: 
+\emph{(i)} protect it, 
+\emph{(ii)} authenticate it or 
+\emph{(iii)} enrich its information content~\cite{alattar04}. 
+The watermarking process usually introduces a degradation (via bit replacement, quantization, \emph{etc}.)
+into the image. 
+Although this degradation is slight, it is unacceptable in certain applications which have
+sensitive imagery. Two such applications are medical imaging and military imaging. 
+In medical imaging, access to the unaltered original image is of paramount importance due to legal reasons~\cite{frid02}.
+In military imaging, images are viewed under non-standard condtions (\emph{e.g.} extreme enhancement and zoom) thus adding a noise
+like signal in the form of a watermark is unacceptable.
+
+Reversible watermarking is a special case of watermarking with an intriguing feature:
+once the watermark has been authenticated, it is possible to remove the watermark and recover the 
+the original un-watermarked image {\bf exactly}~\cite{tian03}. This reversal process is achieveable
+without any reference to information beyond what is in the watermarked image itself.
+Various methods for reversible watermarking have been proposed, such as schemes that use 
+data compression~\cite{frid02, celik05}, schemes that use histogram bin exchanging~\cite{chang05, vlees03, yang04} and
+schemes that use difference expansion~\cite{alattar04, tian03, weng07, thodi04}.
+%Rev WM \cite{tian03, weng07, feng06, alattar04, celik05, chang05, frid02, thodi04, vlees03, yang04}
+%Rasta order. Insert twice.
+In this paper, a new high capacity reversible watermarking method based on difference expansion is introduced.
+The performance of this new method is assessed
+using test, medical and military images.
+
+The novel reversible watermarking method described here is based upon the Tian method~\cite{tian03}; 
+%The novel method
+%improves upon the Tian method by applying a companding technique. 
+it improves upon the Tian method by introducing a companding technique. 
+This allows the novel scheme to embed a significantly larger payload than is possible with the Tian scheme.
+%Results comparing the novel and the Tian methods using test, medical and military images verify the superior 
+%performance of the novel method.
+%which allows a significantly larger payload to be embedded into an image
+%than is possible with the Tian method. 
+Like the Tian method, the novel method can recover the original image {\bf exactly}.
+%(see Section~\ref{sec:compand}).
+%The novel method (using the companding technique) allows a significantly larger payload to be embedded into the image
+%than is possible with the Tian method. Like the Tian method, the new method can recover the original image {\bf exactly}.
+
+%In Section~\ref{sec:tian}, an overview of the Tian reversible watermarking method is given.
+%In Section~\ref{sec:novel}, the novel reversible watermarking method is presented and improvements over the
+%Tian method are highlighted.
+%Results comparing the novel and the Tian methods using test, medical and military images are given in Section~\ref{sec:results}.
+%Conclusions are drawn in Section~\ref{sec:conc}.
+
+
+\section{Overview of the Tian method}
+\label{sec:tian}
+In \cite{tian03}, Tian introduced a reversible watermaring algorithm based upon difference expansion of adjacent
+pixels. The difference between adjacent pixels was calculated via an integer transform.  
+
+\subsection{An integer transform}
+\label{sec:intTx}
+%In the Tian method, a watermark is embedded in the difference between neighbouring pixel values.
+For a pair of pixel values $(x,y)$ in a grayscale image \emph{I} ($x,y \in \mathbb{Z}$;
+$0 \leq x,y \leq 255$), their average value $l$ is defined as:
+\begin{equation}
+\label{eq:l}
+l = \left \lfloor \frac{x+y}{2} \right \rfloor 
+\end{equation}
+and thier difference value $h$ is defined as:
+\begin{equation}
+\label{eq:h}
+h=x-y
+\end{equation}
+where $\lfloor \cdot \rfloor$ is the floor function.
+The original $x$ and $y$ values can be obtained from $l$ and $h$
+by applying the inverse integer transform described in
+equations~\ref{eq:x} and \ref{eq:y}:
+\begin{equation}
+\label{eq:x}
+x = l + \left \lfloor \frac{h+1}{2} \right \rfloor
+\end{equation}
+\begin{equation}
+\label{eq:y}
+y=l - \left \lfloor \frac{h}{2} \right \rfloor
+\end{equation}
+
+\subsection{Watermark embedding via difference expansion}
+In \cite{tian03}, watermark information is embedded in a digital image by altering the 
+difference value $h$. There are certain restrictions in the alteration of the $h$ value
+that must be adhered to.
+As grayscale values ($x,y$) in digital images are bounded in the range $[0,255]$,
+the inverse integer transform must meet the following two condtions:
+\begin{equation}
+0 \leq l + \left \lfloor \frac{h+1}{2} \right \rfloor \leq 255
+\end{equation}
+and
+\begin{equation}
+0 \leq l - \left \lfloor \frac{h}{2} \right \rfloor \leq 255
+\end{equation}
+which is equivalent to:
+\begin{equation}
+\label{eq:hCon}
+|h| \leq \mbox{min} (2(255-l), 2l+1)
+\end{equation}
+Therefore, to prevent underflow and overflow occurring in the watermarked image, 
+the difference value $h$ must satisfy equation~\ref{eq:hCon}. 
+Adhering to equation~\ref{eq:hCon}, the $h$ value is altered to embed a 
+watermark bit. There are two methods in which to alter $h$:
+\begin{enumerate} 
+	\item {\bf Change} the difference value $h$
+	\item {\bf Expand} the difference value $h$
+\end{enumerate} 
+If a neighbouring pixel pair cannot be changed or expanded, they are left unaltered.
+
+\subsubsection{Changing the difference value $h$}
+\label{sec:change}
+For a neighbouring grayscale pair of pixels ($x,y$), the difference value
+$h$ is changeable only if:
+\begin{equation}
+\label{eq:chFind}
+\left | \left \lfloor \frac{h}{2} \right \rfloor \cdot 2 + b \right | \leq \mbox{min}(2(255-l),2l+1)
+\end{equation}
+for both $b=0$ and $b=1$ ($b$ is a watermark bit).
+Changing $h$ requires removing its LSB (Least Significant Bit) and replacing it with a watermark bit:
+\begin{equation}
+\label{eq:ch}
+h_{new} = \left \lfloor \frac{h}{2} \right \rfloor \cdot 2 + b
+\end{equation}
+The removed LSB from $h$ must be stored in order to 
+recover the original image exactly after watermark extraction. 
+An exception is made if $h$ is 1 or -2, no LSB is stored.
+Note that if a pixel pair are identified as changeable and $h$ has a value of 0
+or -1, then the pair are left unaltered\footnote{this is because the conditions
+for changeable and expandable are the same when $h$ is 0 or -1; expanding  
+is preferred over changing}.
+Thus, changing the value of $h$ does
+not provide extra storage space.
+
+\subsubsection{Expanding the difference value $h$}
+\label{sec:ex}
+On the other hand, expanding $h$ does provide extra storage space.
+Neighbouring grayscale pairs of pixels ($x,y$) are expandable only if:
+\begin{equation}
+\label{eq:exFind}
+\left | 2 \cdot h + b \right | \leq \mbox{min}(2(255-l),2l+1)
+\end{equation}
+for both $b=0$ and $b=1$ ($b$ is a watermark bit).
+Expanding $h$ requires left shifting all the bits by one and using the
+freed LSB to store the watermark bit:
+\begin{equation}
+\label{eq:ex}
+h_{new} = 2 \cdot h + b
+\end{equation}
+Thus, if a pair of neighbouring pixels are expandable, one extra bit of storage
+space is obtained. This is the concept of difference expansion.
+
+It is important to note that an expandable $h$ is also changeable. After embedding
+a watermark bit via difference expansion, an expanded $h_{new}$ is still changable.
+This relationship is exploited in watermark recovery.
+
+In order to reduce the visual degradation to a marked image, a user defined threshold is introduced to
+expandable pairs. If $h_{new}$ in an expandable pair is greater than or equal to this threshold,
+the pair are changed rather than expanded, thus minimizing the Mean Squared Error (MSE) of the watermarked image.
+However, this threshold causes a detection problem~\cite{feng06}. In some situations, the 
+detector cannot tell if a pair has been changed or expanded. For example, suppose that the threshold
+value is $10$, the difference value $h = 6$ and the watermark 
+value to be embedded is $1$. From equation~\ref{eq:ex}, $h_{new} = 2 \cdot h + b = 2 \cdot 6 + 1 = 13$. 
+In the retrieving phase at the detector, there are now {\bf two} possibilities: $h$ was $6$ (embedded)
+or $h$ was 13 (not embedded, larger than or equal to threshold). In order to combat this problem, it is necessary
+to create a binary location map marking the position of all expanded pairs.
+
+\subsection{Constructing the watermark bitstream}
+\label{sec:construct}
+In Tian's reversible watermarking scheme, 
+the watermark bitstream {\bf W} that is embedded has three distinct components.
+These are: 
+\begin{itemize}
+\item {\bf L}: a binary location map marking the location of expandable pairs.
+The location map is losslessly compressed\footnote{JBIG lossless compression
+is used in this paper} via JBIG compression~\cite{kim97}
+or run-length coding.
+The greater the compression of {\bf L}, the greater the space there will 
+be for the payload {\bf P}.
+An end of message symbol is appended to the end of {\bf L}.
+\item {\bf C}: a vector containing all the removed LSBs from the changeable pairs.
+\item {\bf P}: the payload the user wishes to embed.
+\end{itemize}
+These vectors are concatenated together to produce a watermark bitstream 
+$\mbox{{\bf W}} = \mbox{{\bf L}} \cup \mbox{{\bf C}} \cup \mbox{{\bf P}}$.
+Thus {\bf W} contains both the user inserted payload ({\bf P}) and the information
+required ({\bf L} and {\bf C}) to exactly restore the original image. This is shown
+diagramatically in Figure~\ref{fig:origLCP}.
+\begin{figure}[!htb]
+%\setlength{\abovecaptionskip}{-0.25cm}
+\centerline{ \hbox{
+        %\includegraphics[height=7cm,width=8cm]{graphsPics/tianComp4.pstex}
+        \includegraphics[height=1cm,width=7cm]{graphsPics/originalLCP.pstex}
+}}
+%	\rule{2cm}{0cm}
+        \caption{Watermark structure of the Tian scheme}
+        \label{fig:origLCP}
+\setlength{\abovecaptionskip}{0cm}
+\end{figure}
+
+\subsection{Watermark recovery}
+\label{sec:wmrec}
+The integer transform (described in section~\ref{sec:intTx}) is applied to a watermarked image \emph{I'}.
+Using equation~\ref{eq:chFind}, changeable and expandable pairs are found ({\bf CE'}). 
+Note that, by definition, expandable pairs are also changeable, thus equation~\ref{eq:chFind}
+finds both changed and expanded pairs.
+
+It can be seen from equations~\ref{eq:ch}
+and \ref{eq:ex} that the original watermark bitstream {\bf W} was inserted into the LSBs of changeable and
+expandable difference values. Thus, collecting the LSBs from the difference values of {\bf CE'} will 
+result in the recovered watermark bitstream {\bf W'}. 
+
+By identifying the end of message symbol in {\bf W'}, the 
+bits from the start until the end of message symbol are losslessly decompressed
+(using a JBIG decoder) to retrieve the binary location map.
+This location map gives the locations of all expanded pairs.
+
+\subsubsection{Restoring the original image exactly}
+\label{sec:restore}
+The bits in {\bf W'} after the location map {\bf L'} are the stored LSBs of changeable pairs {\bf C'}. 
+Using equations~\ref{eq:l} and \ref{eq:h}, the integer transform is applied to the watermarked image \emph{I'} to obtain
+$l'$ and $h'$. Using the stored LSBs ($c_{i}$) from {\bf C'}
+and the location map values, the original difference values $h_{o}$ can be computed. For each pixel pair:
+\begin{itemize}
+	\item If pixel pair are non changeable, do nothing \\ ({\bf unaltered pair})
+	\item If pixel pair are changeable and location map is 1 \\ ({\bf expandable pair}) \\ \rule{0.2cm}{0cm} $h_{o} = \lfloor h'/2 \rfloor$
+	\item If pixel pair are changeable and location map is 0 \\ ({\bf changeable pair}) 
+	\begin{itemize}
+		\item if ($h'==0$) or ($h'==1$) \\ \rule{0.2cm}{0cm} $h_{o}=1$;
+		\item else if ($h'==-1$) or ($h'==-2$) \\ \rule{0.2cm}{0cm} $h_{o}=-2$;
+		\item else \\ \rule{0.2cm}{0cm} $h_{o}= \lfloor h'/2 \rfloor \cdot 2 + c_{i}$; \\ \rule{0.2cm}{0cm} $i=i+1$;
+	\end{itemize}
+\end{itemize}
+Applying the inverse integer transform, the restored image values ($x_{r}$ and $y_{r}$) 
+for each pixel pair can be calculated
+to obtain the original un-watermarked image {\bf exactly}:
+\begin{equation}
+x_{r} = l' + \left \lfloor \frac{h_{o}+1}{2} \right \rfloor 
+\end{equation}
+\begin{equation}
+y_{r} = l' - \left \lfloor \frac{h_{o}}{2} \right \rfloor 
+\end{equation}
+Once all the {\bf C'} values have been used to restore the original un-watermarked image, the rest of the values in {\bf W'}
+(after removal of the location map {\bf L'}) belong to the user inserted payload {\bf P'}.
+
+\section{A novel high capacity reversible watermarking method}
+\label{sec:novel}
+A novel reversible watermarking method is described here that improves upon the Tian scheme. 
+The novel method adapts the Tian scheme to incorporate companding
+of difference values greater than or equal to a user defined threshold.
+
+\subsection{Companding technique}
+\label{sec:compand}
+In~\cite{weng07}, Weng \emph{et al.} presented a reversible watermarking scheme. This scheme used the concept of 
+companding. 
+Companding is the process of {\bf comp}ressing a signal followed by exp{\bf anding} (decompressing\footnote{since 
+the term ``expanding'' is used in this paper to describe the expansion of difference values ($h$), the exp{\bf anding} process
+of companding will be referred to as decompressing}) the signal. 
+Let $C$ be a compression function and let $D$ be a decompressing function. For a signal $x$, $C$ and $D$ have the following 
+relationship: $D(C(x)) = x$. For a digital signal, $C_{q}$ and $D_{q}$ represent the quantized versions of $C$ and $D$, 
+respectively, and $q$ denotes the quantization function. The compression function $C_{q}$ is given by:
+\begin{equation}
+\label{eq:comp}
+ x_{q} = C_{q}(x) = \left \{ 	\begin{array}{ll}
+				x & |x| < th \\
+				\mbox{sgn}(x) \times \left( \left \lfloor \frac{|x| - th}{2} \right \rfloor + th \right) & |x| \geq th 
+				\end{array}
+			\right.
+\end{equation}
+where $\mbox{sgn}(\cdot)$ is the sign function and $th$ is a preset threshold chosen by the user.
+The decompression function $D_{q}$ is given by:
+\begin{equation}
+\label{eq:exp}
+D_{q} = \left \{	\begin{array}{ll}
+			x & |x| < th \\
+			\mbox{sgn}(x) \times (2|x| - th) & |x| \geq th
+			\end{array}
+	\right.
+\end{equation}
+Companding values via equations \ref{eq:comp} and \ref{eq:exp} leads to no errors when 
+$|x| < th$. However, when $|x| \geq th$, companding errors $r$ occur:
+\begin{equation}
+\label{eq:error}
+r = |x| - |D_{q}(C_{q}(x))|
+\end{equation}
+where $r \in \{0,1\}$. 
+
+
+
+\subsection{Novel method using the companding technique}
+\label{sec:novelCompand}
+The novel method presented in this paper treats unaltered and changeable pixel pairs the same way as the Tian method.
+The novel method differs from the Tian method in the way that it treats expandable pairs; 
+the novel scheme incorporates companding 
+whereas the Tian scheme does not.
+
+The Tian scheme finds expandable pairs using equation~\ref{eq:exFind}.
+As described in Section~\ref{sec:ex}, if the difference value $h$ of an expandable pair is greater than 
+or equal to a user defined threshold, the pair would be {\bf changed} rather than {\bf expanded}. 
+This was done to minimize the MSE of a watermarked image. 
+As mentioned in Section~\ref{sec:change}, changeable pairs
+do not provide extra storage space; they carry one bit of watermark
+information in thier LSBs
+but require their original LSB values to be collected in {\bf C}
+(which constitutes part of the watermark bitstream {\bf W}, as shown in Figure~\ref{fig:origLCP}).
+
+In the novel scheme, if the difference value $h$ of an expandable pair is greater than
+or equal to a user defined threshold, the $h$ value is compressed\footnote{compressed, the 
+first part of companding} (via equation~\ref{eq:comp}) and then expanded\footnote{values left 
+shifted and watermark bit stored in LSB}
+(via equation~\ref{eq:ex}). Thus, $h$ values $\geq th$ that would have been {\bf changed} in the Tian scheme are now 
+{\bf compressed} and then {\bf expanded}
+in the novel scheme. 
+To be able to recover the original image exactly, 
+it is necessary to collect the companding errors (equation~\ref{eq:error}) into 
+a vector {\bf R}. This vector is embedded into the image as part of the watermark
+$\mbox{{\bf W}} = \mbox{{\bf L}} \cup \mbox{{\bf C}} \cup \mbox{{\bf R}} \cup \mbox{{\bf P}}$ (shown in Figure~\ref{fig:tianLCRP}).
+It is important to note that no additional bits of storage are obtained from compressing and expanding as the companding errors
+have to be stored in {\bf R}. However, having more pixel pairs expanded rather than changed makes the location map more sparse and
+thus more compressible. This is elaborated upon in Section~\ref{sec:improvements}.
+
+\begin{figure}[!htb]
+%\setlength{\abovecaptionskip}{-0.25cm}
+\centerline{ \hbox{
+        \includegraphics[height=1cm,width=8cm]{graphsPics/tianLCRP.pstex}
+}}
+%	\rule{2cm}{0cm}
+        \caption{Watermark structure of the novel scheme}
+        \label{fig:tianLCRP}
+\setlength{\abovecaptionskip}{0cm}
+\end{figure}
+
+The following MATLAB~\cite{matlab2} code snippet shows how the difference value of an expandable pixel pair 
+is companded (using equations~\ref{eq:comp} and \ref{eq:exp}) and how the companding error is collected in {\bf R}.
+
+\begin{scriptsize}
+\begin{verbatim}
+% blockIn is a 1x2 non-overlapping block
+x=blockIn(1);           
+y=blockIn(2);
+% Find pixel pair average
+l = floor( (x+y)/2 );   
+% Find pixel pair difference value
+h = x - y;              
+% If the difference value is greater 
+% than or equal to threshold ...
+if abs(h) >= th
+   % Compress h (companding process)
+   hCompress = sign(h) * (floor((abs(h)-th)/2)+th);       
+   % Use compressed difference value (in later stages)
+   h = hCompress;
+   % Decompress h (companding process)
+   hDecompress= sign(hCompress) * ((2*abs(hCompress))-th);   
+   % Calculate companding error
+   r = abs(hDecompress - h);                                  
+   % Store companding error in bitstream R
+   R_bitstream=[R_bitstream r];                           
+end
+\end{verbatim}
+\end{scriptsize}
+
+\subsection{Watermark recovery and restoring the original image exactly}
+\label{sec:restoreNovel}
+The process used by Tian (described in 
+Section~\ref{sec:wmrec}) to recover the watermark bitstream {\bf W'}
+from the LSBs of difference values in the watermarked image, 
+is also used in the novel scheme.
+Once {\bf W'} has been obtained, the location map {\bf L'} can be recovered by identifying the
+end of message symbol. 
+
+The bits in {\bf W'} after the location map {\bf L'} are the stored LSBs of changeable pairs {\bf C'} and 
+the companding errors {\bf R'}. 
+Using equations~\ref{eq:l} and \ref{eq:h}, the integer transform is applied to the watermarked image \emph{I'} to obtain
+$l'$ and $h'$. Using the stored LSBs ($c_{i}$) from {\bf C'}, the companding errors ($r_{j}$) from {\bf R}
+and the location map values, the original difference values $h_{o}$ can be computed. For each pixel pair:
+\begin{itemize}
+	\item If pixel pair are non changeable, do nothing \\ ({\bf unaltered pair})
+	\item If the pixel pair are changeable and location map is 1 \\ ({\bf expandable pair})
+	\begin{itemize}
+		\item $h_{o} = \lfloor h'/2 \rfloor$
+		\item if ($|h_{o}| \geq th$) \\ \rule{0.2cm}{0cm} $h_{o} = \mbox{sgn}(h_{o}) \cdot ((2 \cdot \mbox{abs}(h_{o})) - th + r_{j})$;\\
+			\rule{0.2cm}{0cm} $j=j+1$;
+	\end{itemize}
+	\item If the pixel pair are changeable and location map is 0 \\ ({\bf changeable pair}) 
+	\begin{itemize}
+		\item if ($h'==0$) or ($h'==1$) \\ \rule{0.2cm}{0cm} $h_{o}=1$;
+		\item else if ($h'==-1$) or ($h'==-2$) \\ \rule{0.2cm}{0cm} $h_{o}=-2$;
+		\item else \\ \rule{0.2cm}{0cm} $h_{o}= \lfloor h'/2 \rfloor \cdot 2 + c_{i}$; \\ \rule{0.2cm}{0cm} $i=i+1$;
+	\end{itemize}
+\end{itemize}
+Applying the inverse integer transform, the restored image values ($x_{r}$ and $y_{r}$) 
+for each pixel pair can be calculated
+to obtain the original un-watermarked image {\bf exactly}:
+\begin{equation}
+x_{r} = l' + \left \lfloor \frac{h_{o}+1}{2} \right \rfloor 
+\end{equation}
+\begin{equation}
+y_{r} = l' - \left \lfloor \frac{h_{o}}{2} \right \rfloor 
+\end{equation}
+Once all the {\bf C'} and {\bf R'} values have been used to restore the original un-watermarked image, the rest of the values in {\bf W'}
+(after removal of the location map {\bf L'}) belong to the user inserted payload {\bf P'}.
+
+\subsubsection{Improvement obtained}
+\label{sec:improvements}
+As stated in Section~\ref{sec:novelCompand}, using the companding technique in the novel method does not provide
+extra bits of storage. The companding technique allows pixels pairs that would have been changed in
+the Tian scheme to instead be expanded in the novel scheme.
+This is important as it makes the location map of the novel scheme more sparse than the location map of the Tian scheme.
+Sparse location maps can be compressed more than non-sparse location maps. Thus, the novel scheme achieves
+higher payload capacities than the Tian scheme as it
+produces location maps that are more compressible.
+
+An example of this is given in 
+Figure~\ref{fig:locmaps}, where binary location maps for the original Tian scheme (a) and the novel
+scheme (b) are shown\footnote{original input image was grayscale Lena $512 \times 512$, threshold values of 16 were used in both
+the Tian and novel schemes}. 
+\begin{figure}[!htb]
+\setlength{\abovecaptionskip}{-0.25cm}
+\centerline{ \hbox{
+        \includegraphics[height=7cm,width=8cm]{graphsPics/fig5.pstex}
+}}
+%	\rule{2cm}{0cm}
+        \caption{Location maps for {\bf (a)} Tian scheme {\bf (b)} new improved scheme; grayscale Lena $512\times 512$, threshold of 16}
+        \label{fig:locmaps}
+\setlength{\abovecaptionskip}{0cm}
+\end{figure}
+Non-overlapping blocks of $1\times 2$ were used to generate the pixels pairs in these location maps, hence
+the width is half the height.
+In Figure~\ref{fig:locmaps},
+white pixels are expandable and black pixels are not. It can be seen that Figure~\ref{fig:locmaps}(b)
+is much more sparse than Figure~\ref{fig:locmaps}(a). Thus, when these location maps are losslessly compressed,
+greater compression will be achieved from Figure~\ref{fig:locmaps}(b) than from Figure~\ref{fig:locmaps}(a).
+The more compression that can be applied to the location map {\bf L}, the more space there is for the user payload {\bf P}.
+
+The location maps in Figure~\ref{fig:locmaps} were stored as binary Portable BitMaps (PBM) and then losslessly compressed 
+via JBIG compression; Table~\ref{tab:locmaps} shows the file sizes for each.
+Clearly, the sparse location map of the novel scheme can be compressed much more 
+than the location map of the Tian scheme.  
+\begin{table}[!ht]
+\setlength{\abovecaptionskip}{-0.25cm}
+\begin{center}
+\begin{tabular}{|c|c|c|} \hline
+Scheme 		& Original PBM 	& JBIG compressed \\ \hline \hline
+Tian method 	& 16396 Bytes	& 3785 Bytes \\ \hline 
+novel method 	& 16396 Bytes	& 101 Bytes \\ \hline 
+\end{tabular}
+\caption{Original and compressed file sizes of location maps; grayscale Lena $512\times 512$, threshold of 16}
+\label{tab:locmaps}
+\end{center}
+\setlength{\abovecaptionskip}{0cm}
+\end{table}
+
+\vspace{-1.25cm}
+In summary, the novel scheme (using the companding technique) saves space by producing highly compressible 
+location maps which in turn allows larger user payloads to be inserted.
+
+\section{Results}
+\label{sec:results}
+The performance of the novel scheme is compared to that of the Tian scheme using different images.
+The images used are: (\emph{i}) Lena (test image), (\emph{ii}) Eye (SLO\footnote{Scanning Laser Ophthalmoscope} medical image) 
+and (\emph{iii}) Aerial (SAR\footnote{Synthetic Aperture Radar} military image). 
+
+Initially, for both the novel and Tian schemes, 
+vertical pixel pairs are selected (using non-overlapping blocks of $2\times 1$).
+In order to achive payload bitrates greater than 0.5 bits per pixel (bpp), 
+it is necessary to perform multiple embedding.
+This consists of embedding a watermark (into image $I$) using vertical pixel pairs to obtain a watermarked image $W_{v}$.
+Taking advantage of the lossless nature of reversible watermarking, another watermark is embedded
+into the horizontal pairs of $W_{v}$ (using non-overlapping blocks of $1\times 2$) to obtain $W_{vh}$.
+Thus, the original image $I$ has been watermarked twice resulting in $W_{vh}$.
+The original image can be recovered exactly by first decoding $W_{vh}$ to get $W_{v}$ and then
+decoding $W_{v}$ to get $I$.
+
+
+
+Tables~\ref{tab:lena512}, \ref{tab:eye256} and \ref{tab:SAR256} show the results for 
+the Lena, Eye and SAR images, respectively. Each table compares the performance of the Tian and novel schemes
+via hiding capacity (measured using payload bitrate) and image degradation
+(measured using Peak Signal to Noise Ratio (PSNR)).
+Grayscale Lena $512 \times 512$ was chosen as the test image as this was the image tested in~\cite{tian03}. Thus, a fair
+quantitative comparison between the results published in~\cite{tian03} and the results presented here can be obtained.
+
+In Table~\ref{tab:lena512}, it can be seen that the novel scheme is performing better than the Tian scheme. For 
+approximately equal payload bitrates, the novel scheme returns better quality (higher PSNR) watermarked images.
+For example, a payload bitrate of 
+0.24bpp\footnote{payload capacity = image size $\times$ bpp = $512\times 512\times 0.24 \approx 62914$ bits; the higher 
+the bpp value, the greater the hiding capacity} in the Tian
+scheme results in a watermarked image of 42.86dB whereas the same payload bitrate in the novel scheme results in 
+a PSNR of 45.42dB.
+In general, the novel scheme outperforms the Tian scheme 
+%more at the lower payload bitrates and less at higher payload rates.
+at every bitrate tested. The increase in performance is greater at low bitrates than it is at high bitrates.
+
+The results in Table~\ref{tab:eye256} (for the medical image) follow a similar pattern to 
+those in Table~\ref{tab:lena512}, with the novel scheme
+performing better than the Tian scheme over the complete range of payload bitrates (especially at lower bitrates). 
+For a given bitrate, the PSNR of the novel scheme is higher (better) than the PSNR of the Tian scheme.
+It can be seen in Table~\ref{tab:SAR256} (SAR image) 
+that the novel scheme is again outperfoming the Tian scheme over the whole range of payload bitrates. 
+However, the results for both the novel and 
+Tian schemes using the SAR image are not as impressive as the results obtained using the Lena or
+Eye images. This may attributed to the fact that both schemes perform better in homogeneous
+images than they do in inhomogeneous images\footnote{the SAR image is inhomogeneous due 
+to speckle noise} (in general, homogeneous images will have more expandable pairs).
+
+Figure~\ref{fig:nineFigs} shows the original Lena, Eye and SAR images. Examples of the bitrates
+achieved and the corresponding PSNRs using the novel and Tian schemes are given. It can be seen that
+for approximately equal measures of PSNR, the novel scheme returns much higher bitrates than the Tian 
+scheme. 
+
+%These results, using test, medical and military images, clearly show that the novel scheme can embed
+%greater payload bitrates than the Tian scheme for a given PSNR.
+
+\section{Conclusions}
+\label{sec:conc}
+%Future work JBIG2, arithmetic coding, more medical images
+A novel reversible watermarking scheme implementing
+the companding technique has been presented. This novel scheme 
+adapted the Tian scheme to implement companding of certain pixel 
+pairs. This resulted in location maps that were sparser in the 
+novel scheme than they were in the Tian scheme. This in turn
+allowed the novel scheme to have a higher payload hiding capacity than the
+Tian scheme (for similar PSNR values). This was verified via
+experimental results using test, medical and military images.
+
+
+\begin{table*}[!p]
+\begin{center}
+%\vspace{-1.0cm}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|} \hline
+%\setlength{\abovecaptionskip}{-2.5cm}
+Tian: payload bitrate (bpp) 	& 0.15 	& 0.24	& 0.32	& 0.39	& 0.46	& 0.54	& 0.67	& 0.74	& 0.85	\\ \hline
+Tian: PSNR (dB)			& 44.20 & 42.86	& 41.55	& 40.06	& 37.66	& 36.15	& 34.80	& 33.05	& 32.54	\\ \hline \hline
+novel: payload bitrate (bpp)	& 0.16 	& 0.24	& 0.37	& 0.41	& 0.48	& 0.57	& 0.70	& 0.78	& 0.87	\\ \hline
+novel: PSNR (dB)		& 47.09	& 45.42	& 42.45	& 41.22	& 40.35	& 38.84	& 36.78	& 35.31	& 33.68	\\ \hline
+\end{tabular}
+\caption{Results for the Lena test image; grayscale $512\times 512$}
+\label{tab:lena512}
+\end{center}
+\setlength{\abovecaptionskip}{0cm}
+\end{table*}
+
+\begin{table*}[!p]
+%\setlength{\abovecaptionskip}{-0.75cm}
+\begin{center}
+\vspace{-0.7cm}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|} \hline
+Tian: payload bitrate (bpp) 	& 0.23 	& 0.29 	& 0.34	& 0.47	& 0.53	& 0.66	& 0.79	& 0.86	& 0.94	\\ \hline
+Tian: PSNR (dB)			& 42.53 & 41.62	& 40.94	& 37.87	& 35.97	& 34.89	& 33.53	& 32.73	& 31.65	\\ \hline \hline
+novel: payload bitrate (bpp)	& 0.24  & 0.29  & 0.36	& 0.43	& 0.60	& 0.66	& 0.81	& 0.89	& 0.94	\\ \hline
+novel: PSNR (dB)		& 47.09	& 45.27	& 42.93	& 40.54	& 39.61	& 38.48	& 35.71	& 33.77	& 32.06	\\ \hline
+\end{tabular}
+\caption{Results for the Eye medical image; grayscale $256 \times 256$}
+\label{tab:eye256}
+\end{center}
+\setlength{\abovecaptionskip}{0cm}
+\end{table*}
+
+\begin{table*}[!p]
+%\setlength{\abovecaptionskip}{-0.25cm}
+\begin{center}
+\vspace{-0.7cm}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|} \hline
+Tian: payload bitrate (bpp) 	& 0.18 	& 0.25 	& 0.33	& 0.47	& 0.52	& 0.64	& 0.76 	& 0.85	& 0.90	\\ \hline
+Tian: PSNR (dB)			& 36.30 & 35.29	& 33.94	& 29.88	& 29.50	& 28.54	& 27.46	& 26.58	& 26.02	\\ \hline \hline
+novel: payload bitrate (bpp)	& 0.19 	& 0.25  & 0.33	& 0.45	& 0.54	& 0.66 	& 0.77 	& 0.85	& 0.90	\\ \hline
+novel: PSNR (dB)		& 40.71	& 38.74	& 36.32	& 34.40	& 32.87	& 30.81	& 28.99	& 27.41	& 26.32	\\ \hline
+\end{tabular}
+\caption{Results for the SAR military image; grayscale $256 \times 256$}
+\label{tab:SAR256}
+\end{center}
+\setlength{\abovecaptionskip}{0cm}
+\end{table*}
+
+\begin{figure*}[p]
+\setlength{\abovecaptionskip}{-0.25cm}
+	\vspace{-0.45cm}
+\centerline{ \hbox{
+        \includegraphics[height=12.75cm,width=12.75cm]{graphsPics/results/nine.pstex}
+}}
+        \caption{Original images and watermarked images (with approximately equal PSNRs): 
+	{\bf (a)} original Lena image (zoomed) {\bf (b)} Tian: payload = 0.39bpp, PSNR = 40.06dB 
+	{\bf (c)} novel: payload = 0.48bpp, PSNR = 40.35dB
+	{\bf (d)} original Eye image {\bf (e)} Tian: payload = 0.47bpp, PSNR = 37.87dB {\bf (f)} novel: payload = 0.66bpp, PSNR = 38.48dB
+	{\bf (g)} original SAR image {\bf (h)} Tian: payload = 0.18bpp, PSNR = 36.30dB {\bf (i)} novel: payload = 0.33bpp, PSNR = 36.32dB}
+        \label{fig:nineFigs}
+\setlength{\abovecaptionskip}{0cm}
+\end{figure*}
+
+
+\renewcommand{\baselinestretch}{0.9}
+	%\footnotesize
+	\small
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{hawaii08}
+\bibliographystyle{unsrt}
+	\normalsize
+\renewcommand{\baselinestretch}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\end{document}
+
+
+

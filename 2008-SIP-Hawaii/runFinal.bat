@@ -1,0 +1,8 @@
+latex 623-081_StewartFraser_Final
+latex 623-081_StewartFraser_Final
+bibtex 623-081_StewartFraser_Final
+latex 623-081_StewartFraser_Final
+bibtex 623-081_StewartFraser_Final
+latex 623-081_StewartFraser_Final
+latex 623-081_StewartFraser_Final
+dvips 623-081_StewartFraser_Final.dvi -o 623-081_StewartFraser_Final.ps
